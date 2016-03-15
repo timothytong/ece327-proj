@@ -2,10 +2,13 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity custom_max is
-    port ( i_pix1, i_pix2  :  in unsigned (7 downto 0);         -- input will be 8 bits
+    generic (
+        width : natural := 8
+    );
+    port ( i_pix1, i_pix2  :  in unsigned (width - 1 downto 0);         -- input will be 8 bits
            i_dir1, i_dir2 :  in std_logic_vector (2 downto 0);  -- directions are encoded from 000 (W) to 111 (SW)
            o_max_dir      : out std_logic_vector (2 downto 0);
-           o_max_pix       : out unsigned (7 downto 0);
+           o_max_pix       : out unsigned (width - 1 downto 0)
     );
 end custom_max;
 

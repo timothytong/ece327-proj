@@ -17,6 +17,9 @@ begin
     signal custom_max_pix_output : unsigned ( 7 downto 0 );
     -- instantiate custom max module
     u_max : entity work.custom_max(main)
+        generic map (
+            width => 8
+        );
         port map (
             i_dir1 => i_dir1,
             i_dir2 => i_dir2,
