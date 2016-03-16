@@ -14,19 +14,13 @@ entity custom_max is
 end custom_max;
 
 architecture main of custom_max is
-    signal pix1, pix2 : unsigned (7 downto 0);
-    signal dir1, dir2 : std_logic_vector (2 downto 0);
 
 begin
     -- o_max_val takes max(i_dir1, i_dir2) just like all other maxes
     -- o_max_dir takes the direction of max(i_dir1, i_dir2)
     -- if i_pix1 == i_pix2, take i_pix1 and i_dir1 due to priority stated in lab manual
-    pix1 <= i_pix1;
-    pix2 <= i_pix2;
-    dir1 <= i_dir1;
-    dir2 <= i_dir2;
 
-    o_max_pix <= pix1 when ( pix1 >= pix2 ) else pix2;
-    o_max_dir <= dir1 when ( pix1 >= pix2 ) else dir2;
+    o_max_pix <= i_pix1 when ( i_pix1 >= i_pix2 ) else i_pix2;
+    o_max_dir <= i_dir1 when ( i_pix1 >= i_pix2 ) else i_dir2;
 
 end architecture main;
