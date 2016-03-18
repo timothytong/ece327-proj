@@ -68,15 +68,29 @@ signal valid : std_logic_vector(7 downto 0);
 
 --Memory outputs (registered)
 signal mem_out: vec_vec;
+-- Convolution table registers
 signal a, b, c, d, e, f, g, h, i : unsigned(data_width - 1 downto 0);
-signal a_buffer, b_buffer, c_buffer: std_logic_vector(data_width - 1 downto 0);
+
+-- Pipeline 1 combinational signals
+signal i_max1, i_max2, i_add1, i_add2, i_add3, i_add4 : unsigned(data_width - 1 downto 0);
+signal i_dir1, i_dir2 : std_logic_vector(2 downto 0);
+--signal o_max1 : unsigned(data_width - 1 downto 0);
+signal o_add1, o_add2 : unsigned(data_width downto 0);
+signal o_dir1 : std_logic_vector(2 downto 0);
+-- Pipeline 1 registered outputs
+signal r1 : std_logic_vector(2 downto 0);
+signal r2, r3 : unsigned(data_width downto 0);
+
 begin
 
+------------------------------------------------------------------------------------------------- 
+-------------------------------- MEMORY AND CONVOLUTION TABLES ----------------------------------
+-------------------------------------------------------------------------------------------------
 
---combinational assignments (net signals)
+
+    --combinational assignments (net signals)
     mem_wren(0) <= row(0) and i_valid;
     mem_wren(1) <= row(1) and i_valid;
---    mem_wren(2) <= row(2) and i_valid;
 
     -- Memory arrays
     memory_row_1 : entity work.mem(main)
@@ -97,21 +111,15 @@ begin
                 q => mem_out(1)
             );
 
---    memory_row_3 : entity work.mem(main)
---    port map(
---                address => std_logic_vector(column),
---                clock => clock,
---                data => std_logic_vector(i_data),
---                wren => mem_wren(2),
---                q => mem_out(2)
---            );
+
+    -- Populate convolution table
     buffers : process (i_clock)
     begin
         if rising_edge(i_clock) then
             if i_reset = '1' then
-                a_buffer <= (others => '0');
-                b_buffer <= (others => '0');
-                c_buffer <= (others => '0');
+                a <= (others => '0');
+                b <= (others => '0');
+                c <= (others => '0');
                 
                 h <= (others => '0');
                 i <= (others => '0');
@@ -125,15 +133,15 @@ begin
             else
                 if i_valid  = '1' then
                     if row(0) = '1' then
-                        c_buffer <= mem_out(0);
+                        c <= unsigned(mem_out(0));
                         d <= unsigned(mem_out(1));
                     else
-                        c_buffer <= mem_out(1);
+                        c <= unsigned(mem_out(1));
                         d <= unsigned(mem_out(0));
                     end if;
 
-                    b_buffer <= c_buffer;
-                    a_buffer <= b_buffer;
+                    b <= c;
+                    a <= b;
 
                     i <= d;
                     h <= i;
@@ -146,20 +154,15 @@ begin
         end if;
     end process;
  
+    -- Interparcel variable processing (row and column counters for memory access)
     states : process(i_clock)
     begin
         if rising_edge(i_clock) then
             if i_reset = '1' then
                 column <= to_unsigned(0, addr_width);
                 row <= "01";
-                --read <= '0';
-                --just_read <= '0';
                 row_virtual <= to_unsigned(0, addr_width);
             else
-                --if read = '1' then
-                --    read <= '0';
-                --end if;
-
                 if valid(0) = '1' then
                     if column = to_unsigned(255, 8) then
                         column <= to_unsigned(0, 8);
@@ -168,65 +171,86 @@ begin
                     else
                         column <= column + 1;
                     end if;
-
-                --elsif i_valid = '1' then
-                --    read <= '1';
-                --end if;
-
-                --just_read <= read;
                 end if;
             end if;
         end if;
     end process;
 
---  populate_convolution_table : process (i_clock)
---  begin
---      if rising_edge(i_clock) then
---          if i_reset = '1' then
---              h <= to_unsigned(0, 8);
---              i <= to_unsigned(0, 8);
---              d <= to_unsigned(0, 8);
---          else
---              if row_virtual >= 2  then
---                  if column >= 2 then
---                      --a <= mem_row
---                  elsif i_valid = '1' then
---                      if column = 0 then
---                          g <= unsigned(i_pixel);
---                      elsif column = 1 then
---                          f <= unsigned(i_pixel);
---                      end if;
---                  end if;
---              end if;
---          end if;
---      end if;
---  end process;
+    -- Valid bit encoding state signals
+    valid_bit : process(i_clock)
+    begin 
+        if rising_edge(i_clock) then
+            if i_reset = '1' then
+                valid <= (others => '0');
+            else
+                -- logical shift right, bring new i_valid to beginning of valid bit chain
+                valid <= valid(6 downto 0) & i_valid;
+            end if;
+        end if;
+    end process;
 
+------------------------------------------------------------------------------------------------- 
+-------------------------------- DATAPATH PROCESSING --------------------------------------------
+-------------------------------------------------------------------------------------------------
 
+    -- Pipeline 1
+    -- main reusable block instantiation:
+    stage1 : entity work.stage1_hardware(main)
+    port map (
+        i_pix1_stage1 => i_max1,
+        i_pix2_stage1 => i_max2,
+        i_dir1_stage1 => i_dir1,
+        i_dir2_stage1 => i_dir2,
+	i_add_op1_stage1 => i_add1,
+        i_add_op2_stage1 => i_add2,
+        o_add_op12_stage1 => o_add1,
+        o_max_add_stage1 => o_add2,
+        o_max_dir_stage1 => o_dir1
+    );
+    -- control circuitry for stage 1
+    i_max1 <= g when valid(0) = '1' else
+              a when valid(1) = '1' else
+              c when valid(2) = '1' else
+              e; --when valid(3) = '1' and all other don't care situations
 
-  valid_bit : process(i_clock)
-  begin 
-      if rising_edge(i_clock) then
-          if i_reset = '1' then
-              valid <= (others => '0');
-          else
-              -- logical shift right, bring new i_valid to beginning of valid bit chain
-              --valid <= valid sll 1;
-              --valid(0) <= i_valid;
-              valid <= valid(6 downto 0) & i_valid;
-          end if;
-      end if;
-  end process;
+    i_max2 <= b when valid(0) = '1' else
+              d when valid(1) = '1' else
+              f when valid(2) = '1' else
+              h; --when valid(3) = '1' and all other don't care situations
 
-  debug_num_5 <= X"E";
-  debug_num_4 <= X"C";
-  debug_num_3 <= X"E";
-  debug_num_2 <= X"3";
-  debug_num_1 <= X"2";
-  debug_num_0 <= X"7";
+    i_add1 <= a when valid(0) = '1' else
+              b when valid(1) = '1' else
+              d when valid(2) = '1' else
+              f; --when valid(3) = '1' and all other don't care situations
 
-  debug_led_red <= (others => '0');
-  debug_led_grn <= (others => '0');
+    i_add2 <= h when valid(0) = '1' else
+              c when valid(1) = '1' else
+              e when valid(2) = '1' else
+              g; --when valid(3) = '1' and all other don't care situations
+    
+    -- registered outputs r1 and r2
+    registers : process(i_clock)
+    begin
+        if rising_edge(i_clock) then
+            --if i_reset = '1' then
+            --    r1 <= "000000000";
+            --    r2 <= "000000000";
+            --else 
+            r1 <= o_dir1;
+            r2 <= o_add1;
+            r3 <= o_add2;
+        end if;
+    end process;
+
+    debug_num_5 <= X"E";
+    debug_num_4 <= X"C";
+    debug_num_3 <= X"E";
+    debug_num_2 <= X"3";
+    debug_num_1 <= X"2";
+    debug_num_0 <= X"7";
+  
+    debug_led_red <= (others => '0');
+    debug_led_grn <= (others => '0');
 
 end architecture;
 
@@ -270,7 +294,7 @@ use ieee.numeric_std.all;
 entity stage1_hardware is
     port ( i_dir1_stage1, i_dir2_stage1        :  in std_logic_vector ( 2 downto 0 );
            i_pix1_stage1, i_pix2_stage1        :  in unsigned ( 7 downto 0 );
-           i_add_op1_stage1, i_add_op2_stage1  :  in unsigned ( 8 downto 0 );
+           i_add_op1_stage1, i_add_op2_stage1  :  in unsigned ( 7 downto 0 );
            o_add_op12_stage1, o_max_add_stage1 : out unsigned ( 8 downto 0 );
            o_max_dir_stage1                    : out std_logic_vector ( 2 downto 0 )
     );
@@ -294,7 +318,7 @@ begin
             o_max_pix => custom_max_pix_output
         );
 
-    sum_a1_a2 <= resize(i_pix1_stage1, 9) + resize(i_pix2_stage1, 9);
+    sum_a1_a2 <= resize(i_add_op1_stage1, 9) + resize(i_add_op2_stage1, 9);
     o_add_op12_stage1 <= sum_a1_a2;
     o_max_add_stage1 <= custom_max_pix_output + sum_a1_a2;
 end architecture main;
