@@ -72,7 +72,7 @@ signal mem_out: vec_vec;
 signal a, b, c, d, e, f, g, h, i : unsigned(data_width - 1 downto 0);
 
 -- Pipeline 1 combinational signals
-signal i_max1, i_max2, i_add1, i_add2, i_add3, i_add4 : unsigned(data_width - 1 downto 0);
+signal i_max1, i_max2, i_add1, i_add2 : unsigned(data_width - 1 downto 0);
 signal i_dir1, i_dir2 : std_logic_vector(2 downto 0);
 --signal o_max1 : unsigned(data_width - 1 downto 0);
 signal o_add1, o_add2 : unsigned(data_width downto 0);
@@ -228,6 +228,17 @@ begin
               e when valid(2) = '1' else
               g; --when valid(3) = '1' and all other don't care situations
     
+    i_dir1 <= "001" when valid(0) = '1' else -- W
+              "010" when valid(1) = '1' else -- N
+              "000" when valid(2) = '1' else -- E
+              "011"; -- else S
+
+    i_dir2 <= "100" when valid(0) = '1' else -- NW
+              "110" when valid(1) = '1' else -- NE
+              "101" when valid(2) = '1' else -- SE
+              "111"; -- else SW
+
+
     -- registered outputs r1 and r2
     registers : process(i_clock)
     begin
