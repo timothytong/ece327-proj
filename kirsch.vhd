@@ -56,7 +56,8 @@ entity stage1_hardware is
     port ( i_dir1_stage1, i_dir2_stage1        :  in std_logic_vector ( 2 downto 0 );
            i_pix1_stage1, i_pix2_stage1        :  in unsigned ( 7 downto 0 );
            i_add_op1_stage1, i_add_op2_stage1  :  in unsigned ( 7 downto 0 );
-           o_add_op12_stage1, o_max_add_stage1 : out unsigned ( 8 downto 0 );
+           o_add_op12_stage1                   : out unsigned ( 8 downto 0 );
+           o_max_add_stage1                    : out unsigned ( 9 downto 0 );
            o_max_dir_stage1                    : out std_logic_vector ( 2 downto 0 )
     );
 end stage1_hardware;
@@ -82,7 +83,7 @@ begin
 
     sum_a1_a2 <= resize(i_add_op1_stage1, 9) + resize(i_add_op2_stage1, 9);
     o_add_op12_stage1 <= sum_a1_a2;
-    o_max_add_stage1 <= resize(custom_max_pix_output, 9) + sum_a1_a2;
+    o_max_add_stage1 <= resize(custom_max_pix_output, 10) + resize(sum_a1_a2, 10);
 end architecture main;
 
 
@@ -94,10 +95,10 @@ use ieee.numeric_std.all;
 -- The max module is custom-made, implemented in (custom_max_9bit.vhd?????)
 entity stage2_hardware is
     port ( i_dir1_stage2, i_dir2_stage2        :  in std_logic_vector ( 2 downto 0 );
-           i_pix1_stage2, i_pix2_stage2        :  in unsigned ( 8 downto 0 );
+           i_pix1_stage2, i_pix2_stage2        :  in unsigned ( 9 downto 0 );
            i_add_op1_stage2, i_add_op2_stage2  :  in unsigned ( 12 downto 0 );
            o_add_op12_stage2                   : out unsigned ( 12 downto 0 );
-           o_max_stage2                        : out unsigned ( 8 downto 0 );
+           o_max_stage2                        : out unsigned ( 9 downto 0 );
            o_max_dir_stage2                    : out std_logic_vector ( 2 downto 0 )
     );
 end stage2_hardware;
@@ -107,7 +108,7 @@ begin
     -- instantiate custom max module
     u_max2 : entity work.custom_max(main)
         generic map (
-            width => 9
+            width => 10
         )
         port map (
             i_dir1 => i_dir1_stage2,
@@ -203,33 +204,36 @@ signal a, b, c, d, e, f, g, h, i : unsigned(data_width - 1 downto 0);
 signal i_max1, i_max2, i_add1, i_add2 : unsigned(data_width - 1 downto 0);
 signal i_dir1, i_dir2 : std_logic_vector(2 downto 0);
 --signal o_max1 : unsigned(data_width - 1 downto 0);
-signal o_add1, o_add2 : unsigned(data_width downto 0);
+signal o_add1   : unsigned(8 downto 0);
+signal o_add2   : unsigned(9 downto 0);
 signal o_dir1 : std_logic_vector(2 downto 0);
 
 -- Pipeline 1 registered outputs
 signal r1 : std_logic_vector(2 downto 0);
-signal r2, r3 : unsigned(data_width downto 0);
-signal temp_max : unsigned(8 downto 0);
+signal r2 : unsigned(8 downto 0);
+signal r3 : unsigned(9 downto 0);
+signal temp_max : unsigned(9 downto 0);
 signal temp_dir : std_logic_vector(2 downto 0);
 signal temp_add : unsigned(8 downto 0);
 
 -- Pipeline 2 combinational signals
-signal i_max3, i_max4 : unsigned(8 downto 0);
+signal i_max3, i_max4 : unsigned(9 downto 0);
 signal i_dir3, i_dir4 : std_logic_vector(2 downto 0);
 signal i_add3, i_add4 : unsigned(12 downto 0);
-signal o_max1 : unsigned(8 downto 0);
+signal o_max1 : unsigned(9 downto 0);
 signal o_dir2 : std_logic_vector(2 downto 0);
 signal o_add3 : unsigned(12 downto 0);
 
 -- Pipeline 2 registered outputs
-signal r4 : unsigned(8 downto 0);
+signal r4 : unsigned(9 downto 0);
 signal r5 : std_logic_vector(2 downto 0);
 signal r6 : unsigned(12 downto 0);
 
 
 -- Remaining parts of the pipeline
 signal sub_out : signed(13 downto 0);
-signal r7 : signed(13 downto 0);          -- Register for subtractor
+-- registers
+--signal r7 : signed(13 downto 0);          -- Register for subtractor
 signal r8 : std_logic_vector(2 downto 0);
 signal r9 : std_logic;
 
@@ -457,8 +461,8 @@ begin
     );
 
     -- control circuitry for stage 2
-    i_dir3 <= r1;
-    i_dir4 <= temp_dir when valid(2) = '1' else
+    i_dir4 <= r1;
+    i_dir3 <= temp_dir when valid(2) = '1' else
               r5;
     i_max4 <= r3;
     i_max3 <= temp_max when valid(2) = '1' else
@@ -511,7 +515,7 @@ begin
             if valid(6) = '1' then
                 r8 <= r5;
             --elsif valid(7) = '1' then -- TODO: also check for edge case at the BORDER
-                if sub_out >= 383 then
+                if sub_out > 383 then
                     r9 <= '1';
                 else
                     r9 <= '0';

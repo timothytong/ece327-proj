@@ -1,0 +1,151 @@
+//  Precision RTL Synthesis 64-bit 2015.2.16 (PS2015.2.1 Production Release) Tue Jan  5 23:04:49 PST 2016
+//  
+//  Copyright (c) Mentor Graphics Corporation, 1996-2016, All Rights Reserved.
+//             Portions copyright 1991-2008 Compuware Corporation
+//                       UNPUBLISHED, LICENSED SOFTWARE.
+//            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
+//          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+//  
+//  Running on Linux jx2xu@eceLinux2.uwaterloo.ca #1 SMP Tue Mar 15 18:13:50 EDT 2016 2.6.18-409.el5 x86_64
+//  
+//  Start time Wed Mar 23 19:25:16 2016
+
+-- Device: Altera - Cyclone II : EP2C35F672C : 7
+-- CTE report summary..
+-- POST-SYNTHESIS TIMING REPORTS ARE ESTIMATES AND SHOULD NOT BE RELIED ON TO MAKE QoR DECISIONS. For accurate timing information, please run place-and-route (P&R) and review P&R generated timing reports.
+
+================================================================================================
+                   Clock Frequency Report
+
+	Domain                  Clock Name                            Min Period (Freq)             Required Period (Freq)
+	------                  ----------                            -----------------             ----------------------
+	ClockDomain0            i_clock                               6.934 (144.217 MHz)           20.000 (50.000 MHz)
+
+
+================================================================================================
+Setup Timing Analysis of i_clock
+
+Setup Slack Path Summary
+
+               Data                                                         Data
+       Setup   Path   Source    Dest.                                       End 
+Index  Slack   Delay   Clock    Clock    Data Start Pin     Data End Pin    Edge
+-----  ------  -----  -------  -------  ----------------  ----------------  ----
+  1    13.066  6.838  i_clock  i_clock  reg_valid(2)/clk  reg_r3(8)/datain  Rise
+  2    13.089  6.815  i_clock  i_clock  reg_valid(1)/clk  reg_r3(8)/datain  Rise
+  3    13.289  6.615  i_clock  i_clock  reg_valid(0)/clk  reg_r3(8)/datain  Rise
+  4    14.353  5.551  i_clock  i_clock  reg_e(0)/clk      reg_r3(8)/datain  Rise
+  5    14.373  5.531  i_clock  i_clock  reg_a(0)/clk      reg_r3(8)/datain  Rise
+  6    14.375  5.529  i_clock  i_clock  reg_b(0)/clk      reg_r3(8)/datain  Rise
+  7    14.395  5.509  i_clock  i_clock  reg_h(0)/clk      reg_r3(8)/datain  Rise
+  8    14.433  5.471  i_clock  i_clock  reg_b(1)/clk      reg_r3(8)/datain  Rise
+  9    14.453  5.451  i_clock  i_clock  reg_h(1)/clk      reg_r3(8)/datain  Rise
+ 10    14.455  5.449  i_clock  i_clock  reg_e(1)/clk      reg_r3(8)/datain  Rise
+
+                  CTE Path Report
+
+
+Critical path #1, (path slack = 13.066):
+
+SOURCE CLOCK: name: i_clock period: 20.000000
+     Times are relative to the 1st rising edge
+  DEST CLOCK: name: i_clock period: 20.000000
+     Times are relative to the 2nd rising edge
+
+NAME                                                    GATE                     DELAY    ARRIVAL DIR  FANOUT
+reg_valid(2)/clk                                     cycloneii_lcell_ff                   0.000   up
+reg_valid(2)/regout                                  cycloneii_lcell_ff         0.000     0.000   up
+valid(2)                                             (net)                      0.650                  62
+ix28679z52926/dataa                                  cycloneii_lcell_comb                 0.650   up
+ix28679z52926/combout                                cycloneii_lcell_comb       0.545     1.195   up
+nx28679z3                                            (net)                      0.650                  32
+ix28679z52947/datab                                  cycloneii_lcell_comb                 1.845   up
+ix28679z52947/combout                                cycloneii_lcell_comb       0.522     2.367   up
+i_max1(0)                                            (net)                      0.310                   3
+stage1/u_max1/ix54128z52931/dataa                    cycloneii_lcell_comb                 2.677   up
+stage1/u_max1/ix54128z52931/cout                     cycloneii_lcell_comb       0.517     3.194   up
+stage1/u_max1/nx54128z8                              (net)                *     0.000                   1
+stage1/u_max1/ix54128z52930/cin                      cycloneii_lcell_comb                 3.194   up
+stage1/u_max1/ix54128z52930/cout                     cycloneii_lcell_comb       0.080     3.274   up
+stage1/u_max1/nx54128z7                              (net)                *     0.000                   1
+stage1/u_max1/ix54128z52929/cin                      cycloneii_lcell_comb                 3.274   up
+stage1/u_max1/ix54128z52929/cout                     cycloneii_lcell_comb       0.080     3.354   up
+stage1/u_max1/nx54128z6                              (net)                *     0.000                   1
+stage1/u_max1/ix54128z52928/cin                      cycloneii_lcell_comb                 3.354   up
+stage1/u_max1/ix54128z52928/cout                     cycloneii_lcell_comb       0.080     3.434   up
+stage1/u_max1/nx54128z5                              (net)                *     0.000                   1
+stage1/u_max1/ix54128z52927/cin                      cycloneii_lcell_comb                 3.434   up
+stage1/u_max1/ix54128z52927/cout                     cycloneii_lcell_comb       0.080     3.514   up
+stage1/u_max1/nx54128z4                              (net)                *     0.000                   1
+stage1/u_max1/ix54128z52926/cin                      cycloneii_lcell_comb                 3.514   up
+stage1/u_max1/ix54128z52926/cout                     cycloneii_lcell_comb       0.080     3.594   up
+stage1/u_max1/nx54128z3                              (net)                *     0.000                   1
+stage1/u_max1/ix54128z52925/cin                      cycloneii_lcell_comb                 3.594   up
+stage1/u_max1/ix54128z52925/cout                     cycloneii_lcell_comb       0.080     3.674   up
+stage1/u_max1/nx54128z2                              (net)                *     0.000                   1
+stage1/u_max1/ix54128z52924/cin                      cycloneii_lcell_comb                 3.674   up
+stage1/u_max1/ix54128z52924/combout                  cycloneii_lcell_comb       0.000     3.674   up
+stage1/u_max1/nx54128z1                              (net)                *     0.410                   8
+stage1/u_max1/ix61107z52923/datac                    cycloneii_lcell_comb                 4.084   up
+stage1/u_max1/ix61107z52923/combout                  cycloneii_lcell_comb       0.322     4.406   up
+stage1/u_max1/o_max_pix(0)                           (net)                *     0.270                   1
+stage1/o_max_add_stage1_add9_1_ix15254z52933/dataa   cycloneii_lcell_comb                 4.676   up
+stage1/o_max_add_stage1_add9_1_ix15254z52933/cout    cycloneii_lcell_comb       0.517     5.193   up
+stage1/nx15254z10                                    (net)                *     0.000                   1
+stage1/o_max_add_stage1_add9_1_ix15254z52932/cin     cycloneii_lcell_comb                 5.193   up
+stage1/o_max_add_stage1_add9_1_ix15254z52932/cout    cycloneii_lcell_comb       0.080     5.273   up
+stage1/nx15254z9                                     (net)                *     0.000                   1
+stage1/o_max_add_stage1_add9_1_ix15254z52931/cin     cycloneii_lcell_comb                 5.273   up
+stage1/o_max_add_stage1_add9_1_ix15254z52931/cout    cycloneii_lcell_comb       0.080     5.353   up
+stage1/nx15254z8                                     (net)                *     0.000                   1
+stage1/o_max_add_stage1_add9_1_ix15254z52930/cin     cycloneii_lcell_comb                 5.353   up
+stage1/o_max_add_stage1_add9_1_ix15254z52930/cout    cycloneii_lcell_comb       0.080     5.433   up
+stage1/nx15254z7                                     (net)                *     0.000                   1
+stage1/o_max_add_stage1_add9_1_ix15254z52929/cin     cycloneii_lcell_comb                 5.433   up
+stage1/o_max_add_stage1_add9_1_ix15254z52929/cout    cycloneii_lcell_comb       0.080     5.513   up
+stage1/nx15254z6                                     (net)                *     0.000                   1
+stage1/o_max_add_stage1_add9_1_ix15254z52928/cin     cycloneii_lcell_comb                 5.513   up
+stage1/o_max_add_stage1_add9_1_ix15254z52928/cout    cycloneii_lcell_comb       0.080     5.593   up
+stage1/nx15254z5                                     (net)                *     0.000                   1
+stage1/o_max_add_stage1_add9_1_ix15254z52927/cin     cycloneii_lcell_comb                 5.593   up
+stage1/o_max_add_stage1_add9_1_ix15254z52927/cout    cycloneii_lcell_comb       0.080     5.673   up
+stage1/nx15254z4                                     (net)                *     0.000                   1
+stage1/o_max_add_stage1_add9_1_ix15254z52926/cin     cycloneii_lcell_comb                 5.673   up
+stage1/o_max_add_stage1_add9_1_ix15254z52926/cout    cycloneii_lcell_comb       0.080     5.753   up
+stage1/nx15254z3                                     (net)                *     0.000                   1
+stage1/ix15254z52925/cin                             cycloneii_lcell_comb                 5.753   up
+stage1/ix15254z52925/combout                         cycloneii_lcell_comb       0.000     5.753   up
+stage1/nx15254z2                                     (net)                *     0.270                   1
+stage1/o_max_add_stage1_add9_1_ix15254z52924/dataa   cycloneii_lcell_comb                 6.023   up
+stage1/o_max_add_stage1_add9_1_ix15254z52924/combout cycloneii_lcell_comb       0.545     6.568   up
+stage1/o_max_add_stage1(8)                           (net)                *     0.270                   1
+reg_r3(8)/datain                                     cycloneii_lcell_ff                   6.838   up
+
+		Initial edge separation:     20.000
+		Source clock delay:      -    0.000
+		Dest clock delay:        +    0.000
+		                        -----------
+		Edge separation:             20.000
+		Setup constraint:        -    0.096
+		                        -----------
+		Data required time:          19.904
+		Data arrival time:       -    6.838   ( 58.61% cell delay, 41.39% net delay )
+		                        -----------
+		Slack:                       13.066
+
+
+
+================================================================================================
+                   Input Delay Report
+
+	Input                  Clock Name                            Slack (ns)
+	-----                  ----------                            ----------
+	No input delay constraints.
+
+
+================================================================================================
+                   Output Delay Report
+
+	Output                 Clock Name                            Slack (ns)
+	------                 ----------                            ----------
+	No output delay constraints.
