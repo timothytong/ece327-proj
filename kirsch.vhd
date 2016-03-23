@@ -18,22 +18,31 @@ entity custom_max is
 end custom_max;
 
 architecture main of custom_max is
-
+    function max ( a : unsigned; b : unsigned) return unsigned is
+    begin
+        if a > b then
+            return a;
+        else 
+            return b;
+        end if;
+    end function max;
 begin
     -- o_max_val takes max(i_dir1, i_dir2) just like all other maxes
     -- o_max_dir takes the direction of max(i_dir1, i_dir2)
     -- if i_pix1 == i_pix2, take i_pix1 and i_dir1 due to priority stated in lab manual
-
-    process(i_pix1, i_pix2, i_dir1, i_dir2)
-    begin
-        if (i_pix1 >= i_pix2) then
-            o_max_pix <= i_pix1; --when ( i_pix1 >= i_pix2 ) else i_pix2;
-            o_max_dir <= i_dir1; --when ( i_pix1 >= i_pix2 ) else i_dir2;
-        else
-            o_max_pix <= i_pix2;
-            o_max_dir <= i_dir2;
-        end if;
-    end process;
+    o_max_pix <= max(i_pix1, i_pix2);
+    o_max_dir <= i_dir1 when i_pix1 >= i_pix2 else
+                 i_dir2;
+--     process(i_pix1, i_pix2, i_dir1, i_dir2)
+--     begin
+--         if (i_pix1 >= i_pix2) then
+--             o_max_pix <= i_pix1; --when ( i_pix1 >= i_pix2 ) else i_pix2;
+-- --            o_max_dir <= i_dir1; --when ( i_pix1 >= i_pix2 ) else i_dir2;
+--         else
+--             o_max_pix <= i_pix2;
+-- --            o_max_dir <= i_dir2;
+--         end if;
+--     end process;
 
 end architecture main;
 
@@ -55,9 +64,10 @@ end stage1_hardware;
 architecture main of stage1_hardware is
     signal custom_max_pix_output : unsigned ( 7 downto 0 );
     signal sum_a1_a2             : unsigned ( 8 downto 0 );
+
 begin
     -- instantiate custom max module
-    u_max : entity work.custom_max(main)
+    u_max1 : entity work.custom_max(main)
         generic map (
             width => 8
         )
@@ -95,7 +105,7 @@ end stage2_hardware;
 architecture main of stage2_hardware is
 begin
     -- instantiate custom max module
-    u_max : entity work.custom_max(main)
+    u_max2 : entity work.custom_max(main)
         generic map (
             width => 9
         )
