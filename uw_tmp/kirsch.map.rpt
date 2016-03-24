@@ -1,5 +1,5 @@
 Analysis & Synthesis report for kirsch
-Wed Mar 23 19:25:28 2016
+Thu Mar 24 00:05:11 2016
 Quartus II Version 10.1 Build 153 11/29/2010 SJ Full Version
 
 
@@ -47,7 +47,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                   ;
 +------------------------------------+-------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 23 19:25:28 2016     ;
+; Analysis & Synthesis Status        ; Successful - Thu Mar 24 00:05:11 2016     ;
 ; Quartus II Version                 ; 10.1 Build 153 11/29/2010 SJ Full Version ;
 ; Revision Name                      ; kirsch                                    ;
 ; Top-level Entity Name              ; kirsch                                    ;
@@ -444,7 +444,7 @@ Info: Running Quartus II Analysis & Synthesis
     Info: programming logic devices manufactured by Altera and sold by 
     Info: Altera or its authorized distributors.  Please refer to the 
     Info: applicable agreement for further details.
-    Info: Processing started: Wed Mar 23 19:25:26 2016
+    Info: Processing started: Thu Mar 24 00:05:09 2016
 Info: Command: quartus_map kirsch --source=kirsch_logic.edf --family=CycloneII
 Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info: Found 7 design units, including 7 entities, in source file kirsch_logic.edf
@@ -587,8 +587,8 @@ Info: Implemented 552 device resources after synthesis - the final resource coun
     Info: Implemented 441 logic cells
     Info: Implemented 16 RAM segments
 Info: Quartus II Analysis & Synthesis was successful. 0 errors, 78 warnings
-    Info: Peak virtual memory: 264 megabytes
-    Info: Processing ended: Wed Mar 23 19:25:28 2016
+    Info: Peak virtual memory: 263 megabytes
+    Info: Processing ended: Thu Mar 24 00:05:11 2016
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 

@@ -7,7 +7,7 @@ setup_design \
 setup_design -frequency 50
 setup_design -design kirsch
 # setup_design -architecture DESIGN_ARCH
-setup_design -overrides {  }
+setup_design -overrides {  {test_num 2} }
 
 foreach file [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd }] {
   add_input_file $file
@@ -24,6 +24,6 @@ auto_write uw_tmp/kirsch_gate.vhd
 
 puts "*** synthesis to generic gates succeeded ***"
 
-if { "True" != "True" } {
+if { "False" != "True" } {
   exit
 }

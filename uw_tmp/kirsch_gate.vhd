@@ -2,7 +2,7 @@
 -- 
 -- Definition of  kirsch
 -- 
---      Wed Mar 23 19:25:19 2016
+--      Thu Mar 24 00:34:12 2016
 --      
 --      Precision RTL Synthesis, 64-bit 2015.2.16
 -- 
@@ -420,32 +420,6 @@ architecture BEHAVIORAL of and_9u_9u is
 begin
    ix14 : sim_and
       generic map (size => 9) 
-       port map ( a=>a, d=>d);
-end BEHAVIORAL ;
-
-library IEEE;library altera_mf;library lpm;library altera; 
- use IEEE.STD_LOGIC_1164.ALL;
- use altera_mf.altera_mf_components.all, lpm.lpm_components.all, altera.altera_primitives_components.all;
-library modgen_sim; 
-use  modgen_sim.all; 
-
-entity and_17u_17u is 
-   port (
-      a : IN std_logic_vector (16 DOWNTO 0) ;
-      d : OUT std_logic) ;
-end and_17u_17u ;
-
-architecture BEHAVIORAL of and_17u_17u is 
-   component sim_and
-      generic (size : integer := 17) ;
-      
-      port (
-         a : IN std_logic_vector (16 DOWNTO 0) ;
-         d : OUT std_logic) ;
-   end component ;
-begin
-   ix22 : sim_and
-      generic map (size => 17) 
        port map ( a=>a, d=>d);
 end BEHAVIORAL ;
 
@@ -974,35 +948,35 @@ architecture INTERFACE of ram_new_0_work_kirsch_main is
          q : OUT std_logic_vector (7 DOWNTO 0) ;
          addr2 : IN std_logic_vector (7 DOWNTO 0)) ;
    end component ;
-   signal nx32, nx34, dup_0_reg_address_MGC0917_MGC093_rtlcs38_rtlcGen, 
-      dup_0_reg_address_MGC0916_MGC093_rtlcs41_rtlcGen, 
-      dup_0_reg_address_MGC0915_MGC093_rtlcs43_rtlcGen, 
-      dup_0_reg_address_MGC0914_MGC093_rtlcs45_rtlcGen, 
-      dup_0_reg_address_MGC0913_MGC093_rtlcs47_rtlcGen, 
-      dup_0_reg_address_MGC0912_MGC093_rtlcs49_rtlcGen, 
-      dup_0_reg_address_MGC0911_MGC093_rtlcs51_rtlcGen, 
-      dup_0_reg_address_MGC0910_MGC093_rtlcs53_rtlcGen, nx36, nx38: 
+   signal nx32, nx34, dup_0_reg_address_MGC0917_MGC093_rtlcs36_rtlcGen, 
+      dup_0_reg_address_MGC0916_MGC093_rtlcs39_rtlcGen, 
+      dup_0_reg_address_MGC0915_MGC093_rtlcs41_rtlcGen, 
+      dup_0_reg_address_MGC0914_MGC093_rtlcs43_rtlcGen, 
+      dup_0_reg_address_MGC0913_MGC093_rtlcs45_rtlcGen, 
+      dup_0_reg_address_MGC0912_MGC093_rtlcs47_rtlcGen, 
+      dup_0_reg_address_MGC0911_MGC093_rtlcs49_rtlcGen, 
+      dup_0_reg_address_MGC0910_MGC093_rtlcs51_rtlcGen, nx36, nx38: 
    std_logic ;
 
 begin
    nx32 <= '0' ;
    nx34 <= '1' ;
    DFFPC (addr1(7),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0917_MGC093_rtlcs38_rtlcGen) ;
+   dup_0_reg_address_MGC0917_MGC093_rtlcs36_rtlcGen) ;
    DFFPC (addr1(6),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0916_MGC093_rtlcs41_rtlcGen) ;
+   dup_0_reg_address_MGC0916_MGC093_rtlcs39_rtlcGen) ;
    DFFPC (addr1(5),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0915_MGC093_rtlcs43_rtlcGen) ;
+   dup_0_reg_address_MGC0915_MGC093_rtlcs41_rtlcGen) ;
    DFFPC (addr1(4),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0914_MGC093_rtlcs45_rtlcGen) ;
+   dup_0_reg_address_MGC0914_MGC093_rtlcs43_rtlcGen) ;
    DFFPC (addr1(3),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0913_MGC093_rtlcs47_rtlcGen) ;
+   dup_0_reg_address_MGC0913_MGC093_rtlcs45_rtlcGen) ;
    DFFPC (addr1(2),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0912_MGC093_rtlcs49_rtlcGen) ;
+   dup_0_reg_address_MGC0912_MGC093_rtlcs47_rtlcGen) ;
    DFFPC (addr1(1),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0911_MGC093_rtlcs51_rtlcGen) ;
+   dup_0_reg_address_MGC0911_MGC093_rtlcs49_rtlcGen) ;
    DFFPC (addr1(0),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0910_MGC093_rtlcs53_rtlcGen) ;
+   dup_0_reg_address_MGC0910_MGC093_rtlcs51_rtlcGen) ;
    mem : clocked_ram_8_8_256_F_T_F_F_F_F_F_F_F port map ( clk=>wr_clk1, we=>
       nx36, address(7)=>addr1(7), address(6)=>addr1(6), address(5)=>addr1(5), 
       address(4)=>addr1(4), address(3)=>addr1(3), address(2)=>addr1(2), 
@@ -1012,14 +986,14 @@ begin
       data(0)=>wr_data1(0), q(7)=>rd_data1(7), q(6)=>rd_data1(6), q(5)=>
       rd_data1(5), q(4)=>rd_data1(4), q(3)=>rd_data1(3), q(2)=>rd_data1(2), 
       q(1)=>rd_data1(1), q(0)=>rd_data1(0), addr2(7)=>
-      dup_0_reg_address_MGC0917_MGC093_rtlcs38_rtlcGen, addr2(6)=>
-      dup_0_reg_address_MGC0916_MGC093_rtlcs41_rtlcGen, addr2(5)=>
-      dup_0_reg_address_MGC0915_MGC093_rtlcs43_rtlcGen, addr2(4)=>
-      dup_0_reg_address_MGC0914_MGC093_rtlcs45_rtlcGen, addr2(3)=>
-      dup_0_reg_address_MGC0913_MGC093_rtlcs47_rtlcGen, addr2(2)=>
-      dup_0_reg_address_MGC0912_MGC093_rtlcs49_rtlcGen, addr2(1)=>
-      dup_0_reg_address_MGC0911_MGC093_rtlcs51_rtlcGen, addr2(0)=>
-      dup_0_reg_address_MGC0910_MGC093_rtlcs53_rtlcGen);
+      dup_0_reg_address_MGC0917_MGC093_rtlcs36_rtlcGen, addr2(6)=>
+      dup_0_reg_address_MGC0916_MGC093_rtlcs39_rtlcGen, addr2(5)=>
+      dup_0_reg_address_MGC0915_MGC093_rtlcs41_rtlcGen, addr2(4)=>
+      dup_0_reg_address_MGC0914_MGC093_rtlcs43_rtlcGen, addr2(3)=>
+      dup_0_reg_address_MGC0913_MGC093_rtlcs45_rtlcGen, addr2(2)=>
+      dup_0_reg_address_MGC0912_MGC093_rtlcs47_rtlcGen, addr2(1)=>
+      dup_0_reg_address_MGC0911_MGC093_rtlcs49_rtlcGen, addr2(0)=>
+      dup_0_reg_address_MGC0910_MGC093_rtlcs51_rtlcGen);
    nx36 <= wr_ena1 AND ena1 ;
    nx38 <= rd_ena1 AND ena1 ;
 end INTERFACE ;
@@ -1071,35 +1045,35 @@ architecture INTERFACE of ram_new_1_work_kirsch_main is
          q : OUT std_logic_vector (7 DOWNTO 0) ;
          addr2 : IN std_logic_vector (7 DOWNTO 0)) ;
    end component ;
-   signal nx32, nx34, dup_0_reg_address_MGC0917_MGC093_rtlcs38_rtlcGen, 
-      dup_0_reg_address_MGC0916_MGC093_rtlcs41_rtlcGen, 
-      dup_0_reg_address_MGC0915_MGC093_rtlcs43_rtlcGen, 
-      dup_0_reg_address_MGC0914_MGC093_rtlcs45_rtlcGen, 
-      dup_0_reg_address_MGC0913_MGC093_rtlcs47_rtlcGen, 
-      dup_0_reg_address_MGC0912_MGC093_rtlcs49_rtlcGen, 
-      dup_0_reg_address_MGC0911_MGC093_rtlcs51_rtlcGen, 
-      dup_0_reg_address_MGC0910_MGC093_rtlcs53_rtlcGen, nx36, nx38: 
+   signal nx32, nx34, dup_0_reg_address_MGC0917_MGC093_rtlcs36_rtlcGen, 
+      dup_0_reg_address_MGC0916_MGC093_rtlcs39_rtlcGen, 
+      dup_0_reg_address_MGC0915_MGC093_rtlcs41_rtlcGen, 
+      dup_0_reg_address_MGC0914_MGC093_rtlcs43_rtlcGen, 
+      dup_0_reg_address_MGC0913_MGC093_rtlcs45_rtlcGen, 
+      dup_0_reg_address_MGC0912_MGC093_rtlcs47_rtlcGen, 
+      dup_0_reg_address_MGC0911_MGC093_rtlcs49_rtlcGen, 
+      dup_0_reg_address_MGC0910_MGC093_rtlcs51_rtlcGen, nx36, nx38: 
    std_logic ;
 
 begin
    nx32 <= '0' ;
    nx34 <= '1' ;
    DFFPC (addr1(7),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0917_MGC093_rtlcs38_rtlcGen) ;
+   dup_0_reg_address_MGC0917_MGC093_rtlcs36_rtlcGen) ;
    DFFPC (addr1(6),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0916_MGC093_rtlcs41_rtlcGen) ;
+   dup_0_reg_address_MGC0916_MGC093_rtlcs39_rtlcGen) ;
    DFFPC (addr1(5),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0915_MGC093_rtlcs43_rtlcGen) ;
+   dup_0_reg_address_MGC0915_MGC093_rtlcs41_rtlcGen) ;
    DFFPC (addr1(4),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0914_MGC093_rtlcs45_rtlcGen) ;
+   dup_0_reg_address_MGC0914_MGC093_rtlcs43_rtlcGen) ;
    DFFPC (addr1(3),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0913_MGC093_rtlcs47_rtlcGen) ;
+   dup_0_reg_address_MGC0913_MGC093_rtlcs45_rtlcGen) ;
    DFFPC (addr1(2),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0912_MGC093_rtlcs49_rtlcGen) ;
+   dup_0_reg_address_MGC0912_MGC093_rtlcs47_rtlcGen) ;
    DFFPC (addr1(1),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0911_MGC093_rtlcs51_rtlcGen) ;
+   dup_0_reg_address_MGC0911_MGC093_rtlcs49_rtlcGen) ;
    DFFPC (addr1(0),nx32,nx32,rd_clk1,
-   dup_0_reg_address_MGC0910_MGC093_rtlcs53_rtlcGen) ;
+   dup_0_reg_address_MGC0910_MGC093_rtlcs51_rtlcGen) ;
    mem_0 : clocked_ram_8_8_256_F_T_F_F_F_F_F_F_F port map ( clk=>wr_clk1, we
       =>nx36, address(7)=>addr1(7), address(6)=>addr1(6), address(5)=>
       addr1(5), address(4)=>addr1(4), address(3)=>addr1(3), address(2)=>
@@ -1109,14 +1083,14 @@ begin
       wr_data1(1), data(0)=>wr_data1(0), q(7)=>rd_data1(7), q(6)=>
       rd_data1(6), q(5)=>rd_data1(5), q(4)=>rd_data1(4), q(3)=>rd_data1(3), 
       q(2)=>rd_data1(2), q(1)=>rd_data1(1), q(0)=>rd_data1(0), addr2(7)=>
-      dup_0_reg_address_MGC0917_MGC093_rtlcs38_rtlcGen, addr2(6)=>
-      dup_0_reg_address_MGC0916_MGC093_rtlcs41_rtlcGen, addr2(5)=>
-      dup_0_reg_address_MGC0915_MGC093_rtlcs43_rtlcGen, addr2(4)=>
-      dup_0_reg_address_MGC0914_MGC093_rtlcs45_rtlcGen, addr2(3)=>
-      dup_0_reg_address_MGC0913_MGC093_rtlcs47_rtlcGen, addr2(2)=>
-      dup_0_reg_address_MGC0912_MGC093_rtlcs49_rtlcGen, addr2(1)=>
-      dup_0_reg_address_MGC0911_MGC093_rtlcs51_rtlcGen, addr2(0)=>
-      dup_0_reg_address_MGC0910_MGC093_rtlcs53_rtlcGen);
+      dup_0_reg_address_MGC0917_MGC093_rtlcs36_rtlcGen, addr2(6)=>
+      dup_0_reg_address_MGC0916_MGC093_rtlcs39_rtlcGen, addr2(5)=>
+      dup_0_reg_address_MGC0915_MGC093_rtlcs41_rtlcGen, addr2(4)=>
+      dup_0_reg_address_MGC0914_MGC093_rtlcs43_rtlcGen, addr2(3)=>
+      dup_0_reg_address_MGC0913_MGC093_rtlcs45_rtlcGen, addr2(2)=>
+      dup_0_reg_address_MGC0912_MGC093_rtlcs47_rtlcGen, addr2(1)=>
+      dup_0_reg_address_MGC0911_MGC093_rtlcs49_rtlcGen, addr2(0)=>
+      dup_0_reg_address_MGC0910_MGC093_rtlcs51_rtlcGen);
    nx36 <= wr_ena1 AND ena1 ;
    nx38 <= rd_ena1 AND ena1 ;
 end INTERFACE ;
@@ -1318,12 +1292,7 @@ architecture main of kirsch is
          a : IN std_logic_vector (8 DOWNTO 0) ;
          d : OUT std_logic) ;
    end component ;
-   component and_17u_17u
-      port (
-         a : IN std_logic_vector (16 DOWNTO 0) ;
-         d : OUT std_logic) ;
-   end component ;
-   signal o_valid_EXMPLR367, o_edge_EXMPLR368: std_logic ;
+   signal o_edge_EXMPLR368: std_logic ;
    
    signal o_mode_EXMPLR386: std_logic_vector (1 DOWNTO 0) ;
    
@@ -1335,13 +1304,15 @@ architecture main of kirsch is
    
    signal valid: std_logic_vector (6 DOWNTO 0) ;
    
-   signal column_valid1: std_logic_vector (7 DOWNTO 0) ;
+   signal column_valid1: std_logic_vector (7 DOWNTO 1) ;
    
-   signal column_valid2: std_logic_vector (7 DOWNTO 0) ;
+   signal debug_num_5_0_EXMPLR382: std_logic ;
    
-   signal row_valid1: std_logic_vector (7 DOWNTO 0) ;
+   signal column_valid2: std_logic_vector (7 DOWNTO 1) ;
    
-   signal row_valid2: std_logic_vector (7 DOWNTO 0) ;
+   signal row_valid1: std_logic_vector (7 DOWNTO 1) ;
+   
+   signal row_valid2: std_logic_vector (7 DOWNTO 1) ;
    
    signal a: std_logic_vector (7 DOWNTO 0) ;
    
@@ -1407,35 +1378,34 @@ architecture main of kirsch is
    
    signal r6: std_logic_vector (12 DOWNTO 0) ;
    
-   signal debug_num_5_0_EXMPLR382, sub_out_12, sub_out_11, sub_out_10, 
-      sub_out_9, sub_out_8, sub_out_7: std_logic ;
+   signal sub_out_12, sub_out_11, sub_out_10, sub_out_9, sub_out_8, 
+      sub_out_7: std_logic ;
    
    signal r8: std_logic_vector (2 DOWNTO 0) ;
    
    signal debug_num_5_1_EXMPLR383, not_o_row_0, not_valid_0, 
       rtlc1_P5_SS0_n21, not_valid_1, not_valid_2, rtlc5_P8_SS0_n32, 
-      rtlc5_P9_SS0_n35, rtlc5n38, rtlc5n40, not_valid_5, rtlc12n82: 
-   std_logic ;
+      rtlc5_P9_SS0_n35, rtlc5n38, rtlc5n40, not_valid_5: std_logic ;
    
    signal c_13n1ss1: std_logic_vector (7 DOWNTO 0) ;
    
    signal d_13n1ss1: std_logic_vector (7 DOWNTO 0) ;
    
-   signal rtlc14n147, rtlc20n137, rtlc20n138, rtlc20n140, rtlc21n47, 
-      rtlc21n57, rtlcn0, rtlcn1, rtlcn3, rtlcn6, rtlcn8, rtlcn9, 
-      not_rtlc5n40, rtlcs0, not_o_mode_1, not_rtlcn1880, rtlcn1880: 
-   std_logic ;
+   signal rtlc14n148, rtlc20n137, rtlc20n138, rtlc20n140, rtlc21n47, 
+      rtlc21n57, rtlcn0, rtlcn1, rtlcn2, rtlcn5, rtlcn7, not_rtlc5n40, 
+      rtlcs0, not_column_7, not_column_6, not_column_5, not_column_4, 
+      not_column_3, not_column_2, not_column_1, not_column_0, not_o_mode_1, 
+      not_rtlcn1886, rtlcn1886: std_logic ;
    
    signal mem_out_0: std_logic_vector (7 DOWNTO 0) ;
    
    signal mem_out_1: std_logic_vector (7 DOWNTO 0) ;
    
-   signal rtlcn4, rtlc_300_or_44_nx0, NOT_r6_0: std_logic ;
+   signal rtlcn3, NOT_r6_0: std_logic ;
    type DANGLING_type is array (0 downto 0,511 downto 0) of std_logic ;
    signal DANGLING : DANGLING_type ;
 
 begin
-   o_valid <= o_valid_EXMPLR367 ;
    o_edge <= o_edge_EXMPLR368 ;
    o_mode(1) <= o_mode_EXMPLR386(1) ;
    o_mode(0) <= o_mode_EXMPLR386(0) ;
@@ -1500,7 +1470,7 @@ begin
    stage1 : stage1_hardware port map ( i_dir1_stage1(2)=>
       debug_num_5_0_EXMPLR382, i_dir1_stage1(1)=>debug_num_5_0_EXMPLR382, 
       i_dir1_stage1(0)=>rtlc5n38, i_dir2_stage1(2)=>debug_num_5_1_EXMPLR383, 
-      i_dir2_stage1(1)=>debug_num_5_0_EXMPLR382, i_dir2_stage1(0)=>rtlcn4, 
+      i_dir2_stage1(1)=>debug_num_5_0_EXMPLR382, i_dir2_stage1(0)=>rtlcn3, 
       i_pix1_stage1(7)=>i_max1(7), i_pix1_stage1(6)=>i_max1(6), 
       i_pix1_stage1(5)=>i_max1(5), i_pix1_stage1(4)=>i_max1(4), 
       i_pix1_stage1(3)=>i_max1(3), i_pix1_stage1(2)=>i_max1(2), 
@@ -1669,15 +1639,16 @@ begin
    i_add2_select_24Bus29_7 : select_4_4 port map ( a(3)=>valid(0), a(2)=>
       rtlc1_P5_SS0_n21, a(1)=>rtlc5_P8_SS0_n32, a(0)=>rtlc5_P9_SS0_n35, b(3)
       =>h(7), b(2)=>c(7), b(1)=>e(7), b(0)=>g(7), d=>i_add2(7));
+   not_valid_5 <= NOT valid(5) ;
    rtlc20n137 <= sub_out_7 AND sub_out_8 ;
-   rtlc20n140 <= rtlc20n138 AND rtlcn1880 ;
+   rtlc20n140 <= rtlc20n138 AND rtlcn1886 ;
    rtlc21n47 <= valid(6) AND rtlcn0 ;
    rtlc21n57 <= rtlc21n47 AND rtlcn1 ;
-   rtlcn6 <= not_valid_1 AND valid(2) ;
-   rtlc5n40 <= valid(0) OR rtlcn6 ;
-   rtlcn8 <= not_valid_1 AND not_valid_2 ;
-   rtlc5n38 <= valid(0) OR rtlcn8 ;
-   rtlc14n147 <= i_reset OR rtlcn9 ;
+   rtlcn2 <= rtlcs0 OR i_valid ;
+   rtlcn5 <= not_valid_1 AND valid(2) ;
+   rtlc5n40 <= valid(0) OR rtlcn5 ;
+   rtlcn7 <= not_valid_1 AND not_valid_2 ;
+   rtlc5n38 <= valid(0) OR rtlcn7 ;
    not_rtlc5n40 <= NOT rtlc5n40 ;
    i_dir3(0) <= temp_dir(0) when valid(2) = '1' else r5(0) ;
    i_dir3(1) <= temp_dir(1) when valid(2) = '1' else r5(1) ;
@@ -1741,7 +1712,14 @@ begin
    mem_out_1(6) ;
    d_13n1ss1(7) <= mem_out_0(7) when o_row_EXMPLR387(0) = '1' else 
    mem_out_1(7) ;
-   not_valid_5 <= NOT valid(5) ;
+   not_column_7 <= NOT column(7) ;
+   not_column_6 <= NOT column(6) ;
+   not_column_5 <= NOT column(5) ;
+   not_column_4 <= NOT column(4) ;
+   not_column_3 <= NOT column(3) ;
+   not_column_2 <= NOT column(2) ;
+   not_column_1 <= NOT column(1) ;
+   not_column_0 <= NOT column(0) ;
    i_add3(0) <= r2(0) AND not_valid_5 ;
    i_add3(9) <= r6(8) AND valid(5) ;
    i_add3(10) <= r6(9) AND valid(5) ;
@@ -1766,7 +1744,7 @@ begin
       DANGLING(0,2), data(5)=>DANGLING(0,3), data(4)=>DANGLING(0,4), data(3)
       =>DANGLING(0,5), data(2)=>DANGLING(0,6), data(1)=>DANGLING(0,7), 
       data(0)=>DANGLING(0,8), aset=>debug_num_5_0_EXMPLR382, sclear=>i_reset, 
-      updn=>debug_num_5_1_EXMPLR383, cnt_en=>rtlcn9);
+      updn=>debug_num_5_1_EXMPLR383, cnt_en=>rtlc14n148);
    modgen_counter_column : counter_up_cnt_en_sclear_clock_0_8_cx1_kirsch
        port map ( clock=>i_clock, q(7)=>column(7), q(6)=>column(6), q(5)=>
       column(5), q(4)=>column(4), q(3)=>column(3), q(2)=>column(2), q(1)=>
@@ -1775,12 +1753,12 @@ begin
       DANGLING(0,9), data(6)=>DANGLING(0,10), data(5)=>DANGLING(0,11), 
       data(4)=>DANGLING(0,12), data(3)=>DANGLING(0,13), data(2)=>
       DANGLING(0,14), data(1)=>DANGLING(0,15), data(0)=>DANGLING(0,16), aset
-      =>debug_num_5_0_EXMPLR382, sclear=>rtlc14n147, updn=>
+      =>debug_num_5_0_EXMPLR382, sclear=>i_reset, updn=>
       debug_num_5_1_EXMPLR383, cnt_en=>valid(0));
-   not_rtlcn1880 <= NOT rtlcn1880 ;
-   DFFRSE (debug_num_5_1_EXMPLR383,debug_num_5_0_EXMPLR382,i_reset,rtlcn3,
+   not_rtlcn1886 <= NOT rtlcn1886 ;
+   DFFRSE (debug_num_5_1_EXMPLR383,debug_num_5_0_EXMPLR382,i_reset,rtlcn2,
    i_clock,o_mode_EXMPLR386(1)) ;
-   DFFRSE (i_valid,i_reset,debug_num_5_0_EXMPLR382,rtlcn3,i_clock,
+   DFFRSE (i_valid,i_reset,debug_num_5_0_EXMPLR382,rtlcn2,i_clock,
    o_mode_EXMPLR386(0)) ;
    DFFRSE (i_pixel(7),debug_num_5_0_EXMPLR382,i_reset,i_valid,i_clock,e(7))
     ;
@@ -1892,8 +1870,6 @@ begin
    valid(4),i_clock,row_valid2(2)) ;
    DFFPCE (row_valid1(1),debug_num_5_0_EXMPLR382,debug_num_5_0_EXMPLR382,
    valid(4),i_clock,row_valid2(1)) ;
-   DFFPCE (row_valid1(0),debug_num_5_0_EXMPLR382,debug_num_5_0_EXMPLR382,
-   valid(4),i_clock,row_valid2(0)) ;
    DFFPCE (column_valid1(7),debug_num_5_0_EXMPLR382,debug_num_5_0_EXMPLR382,
    valid(4),i_clock,column_valid2(7)) ;
    DFFPCE (column_valid1(6),debug_num_5_0_EXMPLR382,debug_num_5_0_EXMPLR382,
@@ -1908,8 +1884,6 @@ begin
    valid(4),i_clock,column_valid2(2)) ;
    DFFPCE (column_valid1(1),debug_num_5_0_EXMPLR382,debug_num_5_0_EXMPLR382,
    valid(4),i_clock,column_valid2(1)) ;
-   DFFPCE (column_valid1(0),debug_num_5_0_EXMPLR382,debug_num_5_0_EXMPLR382,
-   valid(4),i_clock,column_valid2(0)) ;
    DFFPCE (o_row_EXMPLR387(7),debug_num_5_0_EXMPLR382,
    debug_num_5_0_EXMPLR382,valid(0),i_clock,row_valid1(7)) ;
    DFFPCE (o_row_EXMPLR387(6),debug_num_5_0_EXMPLR382,
@@ -1924,8 +1898,6 @@ begin
    debug_num_5_0_EXMPLR382,valid(0),i_clock,row_valid1(2)) ;
    DFFPCE (o_row_EXMPLR387(1),debug_num_5_0_EXMPLR382,
    debug_num_5_0_EXMPLR382,valid(0),i_clock,row_valid1(1)) ;
-   DFFPCE (o_row_EXMPLR387(0),debug_num_5_0_EXMPLR382,
-   debug_num_5_0_EXMPLR382,valid(0),i_clock,row_valid1(0)) ;
    DFFPCE (column(7),debug_num_5_0_EXMPLR382,debug_num_5_0_EXMPLR382,
    valid(0),i_clock,column_valid1(7)) ;
    DFFPCE (column(6),debug_num_5_0_EXMPLR382,debug_num_5_0_EXMPLR382,
@@ -1940,8 +1912,6 @@ begin
    valid(0),i_clock,column_valid1(2)) ;
    DFFPCE (column(1),debug_num_5_0_EXMPLR382,debug_num_5_0_EXMPLR382,
    valid(0),i_clock,column_valid1(1)) ;
-   DFFPCE (column(0),debug_num_5_0_EXMPLR382,debug_num_5_0_EXMPLR382,
-   valid(0),i_clock,column_valid1(0)) ;
    DFFRSE (valid(5),debug_num_5_0_EXMPLR382,i_reset,debug_num_5_1_EXMPLR383,
    i_clock,valid(6)) ;
    DFFRSE (valid(4),debug_num_5_0_EXMPLR382,i_reset,debug_num_5_1_EXMPLR383,
@@ -2105,12 +2075,10 @@ begin
    DFFPCE (r5(0),debug_num_5_0_EXMPLR382,debug_num_5_0_EXMPLR382,valid(6),
    i_clock,r8(0)) ;
    DFFPC (rtlc21n57,debug_num_5_0_EXMPLR382,debug_num_5_0_EXMPLR382,i_clock,
-   o_valid_EXMPLR367) ;
-   rtlcn4 <= not_valid_0 AND not_valid_1 ;
-   rtlc5_P9_SS0_n35 <= rtlcn4 AND not_valid_2 ;
-   rtlc5_P8_SS0_n32 <= rtlcn4 AND valid(2) ;
-   rtlc_300_or_44_nx0 <= i_valid OR rtlc12n82 ;
-   rtlcn3 <= rtlc_300_or_44_nx0 OR rtlcs0 ;
+   o_valid) ;
+   rtlcn3 <= not_valid_0 AND not_valid_1 ;
+   rtlc5_P9_SS0_n35 <= rtlcn3 AND not_valid_2 ;
+   rtlc5_P8_SS0_n32 <= rtlcn3 AND valid(2) ;
    NOT_r6_0 <= NOT r6(0) ;
    sub_out_sub13_0 : sub_12u_12u_12u_0 port map ( cin=>NOT_r6_0, a(11)=>
       r4(9), a(10)=>r4(8), a(9)=>r4(7), a(8)=>r4(6), a(7)=>r4(5), a(6)=>
@@ -2121,7 +2089,7 @@ begin
       =>r6(1), d(11)=>sub_out_12, d(10)=>sub_out_11, d(9)=>sub_out_10, d(8)
       =>sub_out_9, d(7)=>sub_out_8, d(6)=>sub_out_7, d(5)=>DANGLING(0,17), 
       d(4)=>DANGLING(0,18), d(3)=>DANGLING(0,19), d(2)=>DANGLING(0,20), d(1)
-      =>DANGLING(0,21), d(0)=>DANGLING(0,22), cout=>rtlcn1880);
+      =>DANGLING(0,21), d(0)=>DANGLING(0,22), cout=>rtlcn1886);
    mem : ram_new_0_work_kirsch_main port map ( wr_data1(7)=>i_pixel(7), 
       wr_data1(6)=>i_pixel(6), wr_data1(5)=>i_pixel(5), wr_data1(4)=>
       i_pixel(4), wr_data1(3)=>i_pixel(3), wr_data1(2)=>i_pixel(2), 
@@ -2149,7 +2117,7 @@ begin
       =>debug_num_5_1_EXMPLR383, rst1=>debug_num_5_0_EXMPLR382, regce1=>
       debug_num_5_1_EXMPLR383, regrst1=>debug_num_5_0_EXMPLR382);
    modgen_or_0 : or_6u_6u port map ( a(5)=>sub_out_9, a(4)=>sub_out_10, a(3)
-      =>sub_out_11, a(2)=>sub_out_12, a(1)=>not_rtlcn1880, a(0)=>rtlc20n137, 
+      =>sub_out_11, a(2)=>sub_out_12, a(1)=>not_rtlcn1886, a(0)=>rtlc20n137, 
       d=>rtlc20n138);
    modgen_or_1 : or_7u_7u port map ( a(6)=>row_valid2(2), a(5)=>
       row_valid2(3), a(4)=>row_valid2(4), a(3)=>row_valid2(5), a(2)=>
@@ -2158,15 +2126,9 @@ begin
       column_valid2(3), a(4)=>column_valid2(4), a(3)=>column_valid2(5), a(2)
       =>column_valid2(6), a(1)=>column_valid2(7), a(0)=>column_valid2(1), d
       =>rtlcn1);
-   modgen_and_3 : and_9u_9u port map ( a(8)=>column(7), a(7)=>column(6), 
-      a(6)=>column(5), a(5)=>column(4), a(4)=>column(3), a(3)=>column(2), 
-      a(2)=>column(1), a(1)=>column(0), a(0)=>valid(0), d=>rtlcn9);
-   modgen_and_5 : and_17u_17u port map ( a(16)=>row_valid2(7), a(15)=>
-      row_valid2(6), a(14)=>row_valid2(5), a(13)=>row_valid2(4), a(12)=>
-      row_valid2(3), a(11)=>row_valid2(2), a(10)=>row_valid2(1), a(9)=>
-      row_valid2(0), a(8)=>column_valid2(7), a(7)=>column_valid2(6), a(6)=>
-      column_valid2(5), a(5)=>column_valid2(4), a(4)=>column_valid2(3), a(3)
-      =>column_valid2(2), a(2)=>column_valid2(1), a(1)=>column_valid2(0), 
-      a(0)=>o_valid_EXMPLR367, d=>rtlc12n82);
+   modgen_and_3 : and_9u_9u port map ( a(8)=>not_column_7, a(7)=>
+      not_column_6, a(6)=>not_column_5, a(5)=>not_column_4, a(4)=>
+      not_column_3, a(3)=>not_column_2, a(2)=>not_column_1, a(1)=>
+      not_column_0, a(0)=>valid(0), d=>rtlc14n148);
 end main ;
 

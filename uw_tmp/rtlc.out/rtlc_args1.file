@@ -2,15 +2,15 @@
 6:-mixed
 22:-suppress_ver_warnings
 11:-driver_pid
-16:28673@cfgjijcgek
+16:24715@cfgjikfbgc
 13:-partition_id
 1:1
 16:-top_module_name
-10:top_kirsch
+6:kirsch
 11:-top_module
-21:work.top_kirsch(main)
-5:-main
-21:work.top_kirsch(main)
+17:work.kirsch(main)
+11:-main_param
+25:work.kirsch(main) :8: :8:
 3:-sv
 7:-no_drc
 7:-xprobe
@@ -69,6 +69,8 @@
 10:-allow_ISL
 10:-allow_UFO
 12:-vecwriteopt
+14:-main_generics
+10:test_num=2
 14:-ctrl_mux_flat
 5:never
 10:-pipe_flow

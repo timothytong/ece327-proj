@@ -7,9 +7,9 @@
 //            CONFIDENTIAL AND PROPRIETARY INFORMATION WHICH IS THE
 //          PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 //  
-//  Running on Linux jx2xu@eceLinux2.uwaterloo.ca #1 SMP Tue Mar 15 18:13:50 EDT 2016 2.6.18-409.el5 x86_64
+//  Running on Linux jx2xu@ecelinux5.uwaterloo.ca #1 SMP PREEMPT Sun Feb 14 10:43:50 EST 2016 3.2.77-1.el5.elrepo x86_64
 //  
-//  Start time Wed Mar 23 21:05:36 2016
+//  Start time Thu Mar 24 00:34:10 2016
 # -------------------------------------------------
 # Info: [9566]: Logging session transcript to file /home/jx2xu/ECE_327/ece327-proj/precision.log
 # Info: [9575]: The Results Directory has been set to: /home/jx2xu/ECE_327/ece327-proj/uw_tmp
@@ -18,7 +18,6 @@
 # Info: [574]: The global max fanout is currently set to 1000 for Altera - Cyclone II.
 # Info: [15324]: Setting Part to: "EP2C35F672C".
 # Info: [15325]: Setting Process to: "7".
-# Info: USING DESIGN ARCH
 # Info: [3022]: Reading file: /opt-src/CMC/local/maagaard/tools/mentor/precision/Mgc_home/pkgs/psr/techlibs/cycloneii.syn.
 # Info: [633]: Loading library initialization file /opt-src/CMC/local/maagaard/tools/mentor/precision/Mgc_home/pkgs/psr/userware/yeager_rename.tcl
 # Info: [40000]: vhdlorder, Release 2015b.13
@@ -27,155 +26,44 @@
 # Info: [42502]: Analyzing input file "/home/jx2xu/ECE_327/ece327-proj/mem.vhd" ...
 # Info: [42502]: Analyzing input file "/home/jx2xu/ECE_327/ece327-proj/kirsch_synth_pkg.vhd" ...
 # Info: [42502]: Analyzing input file "/home/jx2xu/ECE_327/ece327-proj/kirsch.vhd" ...
-# Info: [42502]: Analyzing input file "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd" ...
-# Info: [42502]: Analyzing input file "/home/jx2xu/ECE_327/ece327-proj/top_kirsch.vhd" ...
 # Info: [656]: Current working directory: /home/jx2xu/ECE_327/ece327-proj/uw_tmp.
 # Info: [40000]: RTLC-Driver, Release RTLC-Precision 2015b.13
 # Info: [40000]: Last compiled on Dec 24 2015 14:33:45
 # Info: [44512]: Initializing...
 # Info: [44504]: Partitioning design ....
+# Warning: [45472]: Generic/parameter test_num for which -overrides option was specified, does not exist. This value will be ignored.
 # Info: [40000]: RTLCompiler, Release RTLC-Precision 2015b.13
 # Info: [40000]: Last compiled on Dec 24 2015 15:06:12
 # Info: [44512]: Initializing...
-# Info: [44522]: Root Module work.top_kirsch(main): Pre-processing...
-# Info: [44506]: Module work.uw_uart(main): Pre-processing...
-# Info: [44506]: Module work.UARTS(RTL): Pre-processing...
-# Info: [45143]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 133: Enumerated type TxFSM_State with 5 elements encoded as onehot.
-# Info: [45144]: Encodings for TxFSM_State values.
-# Info: [40000]: value                              	                   TxFSM_State[4-0]
-# Info: [40000]: Idle                               	                         00001
-# Info: [40000]: Load_Tx                            	                         00010
-# Info: [40000]: Shift_TX                           	                         00100
-# Info: [40000]: Parity_Tx                          	                         01000
-# Info: [40000]: Stop_Tx                            	                         10000
-# Info: [45143]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 136: Enumerated type RxFSM_State with 8 elements encoded as onehot.
-# Info: [45144]: Encodings for RxFSM_State values.
-# Info: [40000]: value                              	                   RxFSM_State[7-0]
-# Info: [40000]: Idle                               	                      00000001
-# Info: [40000]: Start_Rx                           	                      00000010
-# Info: [40000]: Shift_RX                           	                      00000100
-# Info: [40000]: Edge_Rx                            	                      00001000
-# Info: [40000]: Parity_Rx                          	                      00010000
-# Info: [40000]: Parity_2                           	                      00100000
-# Info: [40000]: Stop_Rx                            	                      01000000
-# Info: [40000]: RxOVF                              	                      10000000
-# Info: [40000]: FSM: Removing state for un-assigned literal   00010000
-# Info: [40000]: FSM: Removing state for un-assigned literal   00100000
-# Info: [45144]: Extracted FSM in module work.UARTS(RTL), with state variable = RxFSM[7:0], async set/reset state(s) = 00000001 , number of states = 6.
-# Info: [45144]: Re-encoding 6 state FSM as "onehot".
-# Info: [45144]: FSM: State encoding table.
-# Info: [40000]: FSM:	Index	     State Name	                            Literal	                      Encoding
-# Info: [40000]: FSM:	    0	           Idle	                           00000001	                        000001
-# Info: [40000]: FSM:	    1	       Start_Rx	                           00000010	                        000010
-# Info: [40000]: FSM:	    2	        Edge_Rx	                           00001000	                        000100
-# Info: [40000]: FSM:	    3	       Shift_RX	                           00000100	                        001000
-# Info: [40000]: FSM:	    4	        Stop_Rx	                           01000000	                        010000
-# Info: [40000]: FSM:	    5	          RxOVF	                           10000000	                        100000
-# Info: [40000]: FSM: Removing state for un-assigned literal      01000
-# Info: [45144]: Extracted FSM in module work.UARTS(RTL), with state variable = TxFSM[4:0], async set/reset state(s) = 00001 , number of states = 4.
-# Info: [45144]: Re-encoding 4 state FSM as "binary".
-# Info: [45144]: FSM: State encoding table.
-# Info: [40000]: FSM:	Index	     State Name	                            Literal	                      Encoding
-# Info: [40000]: FSM:	    0	           Idle	                              00001	                            00
-# Info: [40000]: FSM:	    1	        Load_Tx	                              00010	                            01
-# Info: [40000]: FSM:	    2	       Shift_TX	                              00100	                            10
-# Info: [40000]: FSM:	    3	        Stop_Tx	                              10000	                            11
-# Info: [44506]: Module work.kirsch(main){generic map (data_width => 8 addr_width => 8)}: Pre-processing...
+# Info: [44522]: Root Module work.kirsch(main){generic map (data_width => 8 addr_width => 8)}: Pre-processing...
 # Info: [44506]: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Pre-processing...
 # Info: [45251]: Built-in hardware memory core inferred for variable ': mem.mem depth = 256, width = 8'.
 # Info: [44506]: Module work.stage1_hardware(main): Pre-processing...
 # Info: [44506]: Module work.custom_max(main){generic map (width => 8)}: Pre-processing...
 # Info: [44506]: Module work.stage2_hardware(main): Pre-processing...
 # Info: [44506]: Module work.custom_max(main){generic map (width => 10)}: Pre-processing...
-# Warning: [45729]: "/home/jx2xu/ECE_327/ece327-proj/kirsch.vhd", line 155: Input port debug_key has never been used.
-# Warning: [45729]: "/home/jx2xu/ECE_327/ece327-proj/kirsch.vhd", line 156: Input port debug_switch has never been used.
-# Warning: [45729]: "/home/jx2xu/ECE_327/ece327-proj/top_kirsch.vhd", line 58: signal NC has never been used.
-# Info: [44508]: Module work.UARTS(RTL): Compiling...
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register RxDivisor(8) with RxDivisor(8)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register RxDivisor(6) with RxDivisor(6)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register RxDivisor(3) with RxDivisor(3)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register RxDivisor(2) with RxDivisor(2)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register RxDivisor(0) with RxDivisor(0)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register TxDivisor(11) with TxDivisor(11)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register TxDivisor(9) with TxDivisor(9)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register TxDivisor(8) with TxDivisor(8)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register TxDivisor(7) with TxDivisor(7)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register TxDivisor(5) with TxDivisor(5)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register TxDivisor(4) with TxDivisor(4)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register TxDivisor(3) with TxDivisor(3)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register TxDivisor(1) with TxDivisor(1)
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Sharing register TxDivisor(0) with TxDivisor(0)
-# Info: [44838]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 219: Macro Modgen_Counter "counter_up_sclear_aclear_clock_0_11" inferred for node "RxDiv".
-# Info: [44838]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 241: Macro Modgen_Counter "counter_up_sclear_aclear_clock_0_12" inferred for node "TxDiv".
-# Info: [44838]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 287: Macro Modgen_Counter "counter_dn_sload_aclear_clock_clk_en_cnt_en_0_4" inferred for node "TxBitCnt".
-# Info: [44838]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 371: Macro Modgen_Counter "counter_up_sclear_aclear_clock_clk_en_cnt_en_0_4" inferred for node "RxBitCnt".
-# Info: [44508]: Module work.uw_uart(main): Compiling...
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 525: Sharing register mdata[4] with mdata[5]
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 525: Sharing register mdata[6] with mdata[7]
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 563: Sharing register sdout[4] with sdout[5]
-# Info: [44812]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 563: Sharing register sdout[6] with sdout[7]
-# Info: [44838]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 535: Macro Modgen_Counter "counter_up_sclear_clock_clk_en_0_16" inferred for node "waitcount".
+# Warning: [45729]: "/home/jx2xu/ECE_327/ece327-proj/kirsch.vhd", line 156: Input port debug_key has never been used.
+# Warning: [45729]: "/home/jx2xu/ECE_327/ece327-proj/kirsch.vhd", line 157: Input port debug_switch has never been used.
 # Info: [44508]: Module work.mem(main){generic map (data_width => 8 addr_width => 8)}: Compiling...
 # Info: [44508]: Module work.custom_max(main){generic map (width => 8)}: Compiling...
 # Info: [44508]: Module work.stage1_hardware(main): Compiling...
 # Info: [44508]: Module work.custom_max(main){generic map (width => 10)}: Compiling...
 # Info: [44508]: Module work.stage2_hardware(main): Compiling...
-# Info: [44508]: Module work.kirsch(main){generic map (data_width => 8 addr_width => 8)}: Compiling...
-# Info: [44838]: "/home/jx2xu/ECE_327/ece327-proj/kirsch.vhd", line 347: Macro Modgen_Counter "counter_up_sclear_clock_cnt_en_0_8" inferred for node "row_virtual".
-# Info: [44838]: "/home/jx2xu/ECE_327/ece327-proj/kirsch.vhd", line 349: Macro Modgen_Counter "counter_up_sclear_clock_cnt_en_0_8" inferred for node "column".
-# Info: [44523]: Root Module work.top_kirsch(main): Compiling...
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Optimizing state bit(s) TxDivisor[10] to constant 0
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Optimizing state bit(s) TxDivisor[6] to constant 0
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Optimizing state bit(s) TxDivisor[2] to constant 0
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Optimizing state bit(s) RxDivisor[9] to constant 0
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Optimizing state bit(s) RxDivisor[5] to constant 0
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/lib_kirsch.vhd", line 184: Optimizing state bit(s) RxDivisor[1] to constant 0
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/top_kirsch.vhd", line 19: Optimizing state bit(s) o_sevenseg[15] to constant 1
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/top_kirsch.vhd", line 19: Optimizing state bit(s) o_sevenseg[7] to constant 1
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/top_kirsch.vhd", line 28: Optimizing state bit(s) debug_sevenseg_0[7] to constant 1
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/top_kirsch.vhd", line 29: Optimizing state bit(s) debug_sevenseg_1[7] to constant 1
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/top_kirsch.vhd", line 30: Optimizing state bit(s) debug_sevenseg_2[7] to constant 1
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/top_kirsch.vhd", line 31: Optimizing state bit(s) debug_sevenseg_3[7] to constant 1
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/top_kirsch.vhd", line 32: Optimizing state bit(s) debug_sevenseg_4[7] to constant 1
-# Info: [45309]: "/home/jx2xu/ECE_327/ece327-proj/top_kirsch.vhd", line 33: Optimizing state bit(s) debug_sevenseg_5[7] to constant 1
+# Info: [44523]: Root Module work.kirsch(main){generic map (data_width => 8 addr_width => 8)}: Compiling...
+# Info: [44838]: "/home/jx2xu/ECE_327/ece327-proj/kirsch.vhd", line 348: Macro Modgen_Counter "counter_up_sclear_clock_cnt_en_0_8" inferred for node "row_virtual".
+# Info: [44838]: "/home/jx2xu/ECE_327/ece327-proj/kirsch.vhd", line 351: Macro Modgen_Counter "counter_up_sclear_clock_cnt_en_0_8" inferred for node "column".
 # Info: [44842]: Compilation successfully completed.
-# Info: [44841]: Counter Inferencing === Detected : 7, Inferred (Modgen/Selcounter/AddSub) : 7 (7 / 0 / 0), AcrossDH (Merged/Not-Merged) : (0 / 0), Not-Inferred (Acrossdh/Attempted) : (0 / 0), Local Vars : 0 ===
-# Info: [44856]: Total lines of RTL compiled: 1238.
+# Info: [44841]: Counter Inferencing === Detected : 2, Inferred (Modgen/Selcounter/AddSub) : 2 (2 / 0 / 0), AcrossDH (Merged/Not-Merged) : (0 / 0), Not-Inferred (Acrossdh/Attempted) : (0 / 0), Local Vars : 0 ===
+# Info: [44856]: Total lines of RTL compiled: 641.
 # Info: [44835]: Total CPU time for compilation: 0.0 secs.
-# Info: [44513]: Overall running time for compilation: 2.0 secs.
+# Info: [44513]: Overall running time for compilation: 1.0 secs.
 # Info: [656]: Current working directory: /home/jx2xu/ECE_327/ece327-proj/uw_tmp.
 # Info: [15330]: Doing rtl optimizations.
 # Info: [659]: Finished compiling design.
-# Info: [3027]: Writing file: /home/jx2xu/ECE_327/ece327-proj/uw_tmp/top_kirsch_gate.vhd.
+# Info: i_clock
+# Info: [3027]: Writing file: /home/jx2xu/ECE_327/ece327-proj/uw_tmp/kirsch_gate.vhd.
 # Info: Info, Command 'auto_write' finished successfully
-# Info: [3027]: Writing file: /home/jx2xu/ECE_327/ece327-proj/uw_tmp/top_kirsch_logic.v.
-# Info: Info, Command 'auto_write' finished successfully
-# Info: [656]: Current working directory: /home/jx2xu/ECE_327/ece327-proj/uw_tmp.
-# Info: [20013]: Precision will use 8 processor(s).
-# Info: #  [15002]: Optimizing design view:.work.custom_max_10.main
-# Info: #  [15002]: Optimizing design view:.work.custom_max_8.main_unfold_1856
-# Info: #  [15002]: Optimizing design view:.work.stage2_hardware.main
-# Info: #  [15002]: Optimizing design view:.work.stage1_hardware.main_unfold_1434
-# Info: #  [15002]: Optimizing design view:.work.uw_uart.main
-# Info: #  [15002]: Optimizing design view:.work.top_kirsch.main
-# Info: #  [15002]: Optimizing design view:.work.UARTS.RTL_unfold_1358
-# Info: #  [15002]: Optimizing design view:.work.kirsch_8_8.main_unfold_1777
-# Info: [12045]: Starting timing reports generation...
-# Info: [12046]: Timing reports generation done.
-# Info: [12047]: POST-SYNTHESIS TIMING REPORTS ARE ESTIMATES AND SHOULD NOT BE RELIED ON TO MAKE QoR DECISIONS. For accurate timing information, please run place-and-route (P&R) and review P&R generated timing reports.
-# Info: [3027]: Writing file: /home/jx2xu/ECE_327/ece327-proj/uw_tmp/top_kirsch.edf.
-# Info: Info, Writing xrf file '/home/jx2xu/ECE_327/ece327-proj/uw_tmp/top_kirsch.xrf'
-# Info: [3027]: Writing file: /home/jx2xu/ECE_327/ece327-proj/uw_tmp/top_kirsch.xrf.
-# Info: [3027]: Writing file: /home/jx2xu/ECE_327/ece327-proj/uw_tmp/top_kirsch.vhd.
-# Info: [3027]: Writing file: /home/jx2xu/ECE_327/ece327-proj/uw_tmp/top_kirsch.xrf.
-# Info: [3027]: Writing file: /home/jx2xu/ECE_327/ece327-proj/uw_tmp/top_kirsch.vqm.
-# Info: [3027]: Writing file: /home/jx2xu/ECE_327/ece327-proj/uw_tmp/top_kirsch.xrf.
-# Info: -- Writing file /home/jx2xu/ECE_327/ece327-proj/uw_tmp/top_kirsch.tcl
-# Info: exq_pr_compile_project gen_vcf top_kirsch 1
-# Info: [659]: Finished synthesizing design.
-# Info: [11019]: Total CPU time for synthesis: 2.3 s secs.
-# Info: [11020]: Overall running time for synthesis: 5.5 s secs.
-# Info: clk
-# Info: 1
-# Info: 0
-# Info: *** logic synthesis succeeded ***
+# Info: *** synthesis to generic gates succeeded ***
+# COMMAND: close_results_dir
+# Info: [9578]: The Results Directory has been closed.
+close_results_dir

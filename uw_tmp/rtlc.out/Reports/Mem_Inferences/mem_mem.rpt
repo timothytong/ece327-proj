@@ -1,6 +1,6 @@
 Inferred RAM
 ------------
-  1. Instance: rtlcmem_mem_57_n1
+  1. Instance: rtlcmem_mem_37_n1
     File: /home/jx2xu/ECE_327/ece327-proj/mem.vhd , Net: mem, Type: single port
     port 1  read
     port 1  address width: 8

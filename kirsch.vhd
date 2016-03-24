@@ -131,6 +131,7 @@ end architecture main;
 library IEEE;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.kirsch_synth_pkg.all;
 
 entity kirsch is
   generic (
@@ -183,7 +184,7 @@ type vec_vec is array (1 downto 0) of vec;
 
 -- Control signals (nets)
 signal mem_wren : std_logic_vector(0 to 1);
-signal mode : std_logic_vector(1 downto 0);
+signal mode : mode_ty;
 
 -- State signals (registered)
 signal column : unsigned(addr_width - 1 downto 0);
@@ -202,7 +203,7 @@ signal a, b, c, d, e, f, g, h, i : unsigned(data_width - 1 downto 0);
 
 -- Pipeline 1 combinational signals
 signal i_max1, i_max2, i_add1, i_add2 : unsigned(data_width - 1 downto 0);
-signal i_dir1, i_dir2 : std_logic_vector(2 downto 0);
+signal i_dir1, i_dir2 : direction_ty;
 --signal o_max1 : unsigned(data_width - 1 downto 0);
 signal o_add1   : unsigned(8 downto 0);
 signal o_add2   : unsigned(9 downto 0);
@@ -248,15 +249,15 @@ begin
     begin
         if rising_edge(i_clock) then
             if i_reset = '1' then
-                mode <= "01";
+                mode <= reset;
             else
                 if mode = "01" then
-                    mode <= "10";
+                    mode <= idle;
                 end if;
                 if i_valid = '1' then
-                    mode <= "11";
-                elsif (row_valid2 = 255 and column_valid2 = 255 and output_valid_reg = '1') then
-                    mode <= "10";
+                    mode <= busy;
+                elsif ((row_valid2 = image_height - 1) and (column_valid2 = image_width - 1) and output_valid_reg = '1') then
+                    mode <= idle;
                 end if;
             end if;
         end if;
@@ -341,13 +342,14 @@ begin
                 row_virtual <= to_unsigned(0, addr_width);
             else
                 if valid(0) = '1' then
-                    if column = to_unsigned(255, 8) then
-                        column <= to_unsigned(0, 8);
+                    if column = to_unsigned(image_width - 1, 8) then
+                        --column <= to_unsigned(0, 8);
                         --row <= "rol"(row, 1);
                         row_virtual <= row_virtual + 1;
-                    else
-                        column <= column + 1;
                     end if;
+                    --else
+                        column <= column + 1;
+                    --end if;
                 end if;
             end if;
         end if;
@@ -420,15 +422,15 @@ begin
               e when valid(2) = '1' else
               g; --when valid(3) = '1' and all other don't care situations
 
-    i_dir1 <= "001" when valid(0) = '1' else -- W
-              "010" when valid(1) = '1' else -- N
-              "000" when valid(2) = '1' else -- E
-              "011"; -- else S
+    i_dir1 <= dir_w when valid(0) = '1' else -- W
+              dir_n when valid(1) = '1' else -- N
+              dir_e when valid(2) = '1' else -- E
+              dir_s; -- else S
 
-    i_dir2 <= "100" when valid(0) = '1' else -- NW
-              "110" when valid(1) = '1' else -- NE
-              "101" when valid(2) = '1' else -- SE
-              "111"; -- else SW
+    i_dir2 <= dir_nw when valid(0) = '1' else -- NW
+              dir_ne when valid(1) = '1' else -- NE
+              dir_se when valid(2) = '1' else -- SE
+              dir_sw; -- else SW
 
 
     -- registered outputs r1, r2, and r3
@@ -515,7 +517,7 @@ begin
             if valid(6) = '1' then
                 r8 <= r5;
             --elsif valid(7) = '1' then -- TODO: also check for edge case at the BORDER
-                if sub_out > 383 then
+                if sub_out > threshold then
                     r9 <= '1';
                 else
                     r9 <= '0';

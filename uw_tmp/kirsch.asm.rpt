@@ -1,5 +1,5 @@
 Assembler report for kirsch
-Wed Mar 23 19:25:37 2016
+Thu Mar 24 00:05:21 2016
 Quartus II Version 10.1 Build 153 11/29/2010 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Wed Mar 23 19:25:37 2016 ;
+; Assembler Status      ; Successful - Thu Mar 24 00:05:21 2016 ;
 ; Revision Name         ; kirsch                                ;
 ; Top-level Entity Name ; kirsch                                ;
 ; Family                ; Cyclone II                            ;
@@ -130,13 +130,13 @@ Info: Running Quartus II Assembler
     Info: programming logic devices manufactured by Altera and sold by 
     Info: Altera or its authorized distributors.  Please refer to the 
     Info: applicable agreement for further details.
-    Info: Processing started: Wed Mar 23 19:25:35 2016
+    Info: Processing started: Thu Mar 24 00:05:19 2016
 Info: Command: quartus_asm kirsch
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 294 megabytes
-    Info: Processing ended: Wed Mar 23 19:25:37 2016
+    Info: Peak virtual memory: 292 megabytes
+    Info: Processing ended: Thu Mar 24 00:05:21 2016
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

@@ -1,5 +1,5 @@
 Flow report for kirsch
-Wed Mar 23 19:25:41 2016
+Thu Mar 24 00:05:23 2016
 Quartus II Version 10.1 Build 153 11/29/2010 SJ Full Version
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------+
 ; Flow Summary                                                                   ;
 +------------------------------------+-------------------------------------------+
-; Flow Status                        ; Successful - Wed Mar 23 19:25:41 2016     ;
+; Flow Status                        ; Successful - Thu Mar 24 00:05:23 2016     ;
 ; Quartus II Version                 ; 10.1 Build 153 11/29/2010 SJ Full Version ;
 ; Revision Name                      ; kirsch                                    ;
 ; Top-level Entity Name              ; kirsch                                    ;
@@ -62,24 +62,24 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/23/2016 19:25:27 ;
+; Start date & time ; 03/24/2016 00:05:10 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; kirsch              ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                      ;
-+------------------------------------+-----------------------------------+---------------+-------------+----------------+
-; Assignment Name                    ; Value                             ; Default Value ; Entity Name ; Section Id     ;
-+------------------------------------+-----------------------------------+---------------+-------------+----------------+
-; AUTO_SHIFT_REGISTER_RECOGNITION    ; Off                               ; Auto          ; --          ; --             ;
-; COMPILER_SIGNATURE_ID              ; 21523214991622144.145877552719104 ; --            ; --          ; --             ;
-; EDA_MAP_ILLEGAL_CHARACTERS         ; On                                ; --            ; --          ; eda_simulation ;
-; POWER_DEFAULT_INPUT_IO_TOGGLE_RATE ; 0 %                               ; 12.5%         ; --          ; --             ;
-; POWER_DEFAULT_TOGGLE_RATE          ; 0 %                               ; 12.5%         ; --          ; --             ;
-; POWER_OUTPUT_SAF_NAME              ; kirsch.saf.rpt                    ; --            ; --          ; --             ;
-+------------------------------------+-----------------------------------+---------------+-------------+----------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                    ;
++------------------------------------+---------------------------------+---------------+-------------+----------------+
+; Assignment Name                    ; Value                           ; Default Value ; Entity Name ; Section Id     ;
++------------------------------------+---------------------------------+---------------+-------------+----------------+
+; AUTO_SHIFT_REGISTER_RECOGNITION    ; Off                             ; Auto          ; --          ; --             ;
+; COMPILER_SIGNATURE_ID              ; 220314655609143.145879230919453 ; --            ; --          ; --             ;
+; EDA_MAP_ILLEGAL_CHARACTERS         ; On                              ; --            ; --          ; eda_simulation ;
+; POWER_DEFAULT_INPUT_IO_TOGGLE_RATE ; 0 %                             ; 12.5%         ; --          ; --             ;
+; POWER_DEFAULT_TOGGLE_RATE          ; 0 %                             ; 12.5%         ; --          ; --             ;
+; POWER_OUTPUT_SAF_NAME              ; kirsch.saf.rpt                  ; --            ; --          ; --             ;
++------------------------------------+---------------------------------+---------------+-------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -88,11 +88,11 @@ applicable agreement for further details.
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Analysis & Synthesis ; 00:00:02     ; 1.0                     ; --                  ; 00:00:01                           ;
-; Fitter               ; 00:00:04     ; 1.0                     ; --                  ; 00:00:05                           ;
+; Fitter               ; 00:00:05     ; 1.0                     ; --                  ; 00:00:06                           ;
 ; Assembler            ; 00:00:02     ; 1.0                     ; --                  ; 00:00:02                           ;
 ; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; --                  ; 00:00:00                           ;
-; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; --                  ; 00:00:00                           ;
-; Total                ; 00:00:10     ; --                      ; --                  ; 00:00:08                           ;
+; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; --                  ; 00:00:00                           ;
+; Total                ; 00:00:10     ; --                      ; --                  ; 00:00:09                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -101,11 +101,11 @@ applicable agreement for further details.
 +----------------------+------------------------+----------------+------------+----------------+
 ; Module Name          ; Machine Hostname       ; OS Name        ; OS Version ; Processor type ;
 +----------------------+------------------------+----------------+------------+----------------+
-; Analysis & Synthesis ; eceLinux2.uwaterloo.ca ; CentOS release ; 5          ; x86_64         ;
-; Fitter               ; eceLinux2.uwaterloo.ca ; CentOS release ; 5          ; x86_64         ;
-; Assembler            ; eceLinux2.uwaterloo.ca ; CentOS release ; 5          ; x86_64         ;
-; EDA Netlist Writer   ; eceLinux2.uwaterloo.ca ; CentOS release ; 5          ; x86_64         ;
-; EDA Netlist Writer   ; eceLinux2.uwaterloo.ca ; CentOS release ; 5          ; x86_64         ;
+; Analysis & Synthesis ; ecelinux5.uwaterloo.ca ; CentOS release ; 5          ; x86_64         ;
+; Fitter               ; ecelinux5.uwaterloo.ca ; CentOS release ; 5          ; x86_64         ;
+; Assembler            ; ecelinux5.uwaterloo.ca ; CentOS release ; 5          ; x86_64         ;
+; EDA Netlist Writer   ; ecelinux5.uwaterloo.ca ; CentOS release ; 5          ; x86_64         ;
+; EDA Netlist Writer   ; ecelinux5.uwaterloo.ca ; CentOS release ; 5          ; x86_64         ;
 +----------------------+------------------------+----------------+------------+----------------+
 
 
