@@ -1,7 +1,11 @@
+UARTS UARTS
 custom_max-10 custom_max_10
+kirsch-8_8 kirsch_8_8
 stage2_hardware stage2_hardware
+top_kirsch top_kirsch
 custom_max-8 custom_max_8
 custom_max-9 custom_max_9
 stage1_hardware stage1_hardware
 kirsch kirsch
+uw_uart uw_uart
 #LEGALIZEDMOD_COUNTER 0

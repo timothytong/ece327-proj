@@ -10,7 +10,7 @@ setup_design \
 setup_design -edif -vhdl
 setup_design \
   -frequency 50 \
-  -design kirsch
+  -design top_kirsch
 setup_design \
   -addio=false
 if { {main} != {} } {
@@ -30,8 +30,8 @@ setup_design -overrides {  }
 
 
 # add_input_file -search_path $VHDL_PATH
-# add_input_file [list [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd }] ]
-foreach file [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd }] {
+# add_input_file [list [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd lib_kirsch.vhd top_kirsch.vhd }] ]
+foreach file [concat {  } { mem.vhd kirsch_synth_pkg.vhd kirsch.vhd lib_kirsch.vhd top_kirsch.vhd }] {
   add_input_file $file
 }  
 
@@ -42,10 +42,10 @@ set_attribute \
   -value preserve_interface_block_and_sub_blocks
 
 
-auto_write uw_tmp/kirsch_gate.vhd
+auto_write uw_tmp/top_kirsch_gate.vhd
 
 # verilog needed for vgencomp_to_arch
-auto_write uw_tmp/kirsch_logic.v
+auto_write uw_tmp/top_kirsch_logic.v
 
 report_area \
    -hierarchy \

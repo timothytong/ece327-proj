@@ -19,7 +19,7 @@
 #################
 # Attributes
 #################
-set_attribute -name hierarchy -value "preserve_interface_block_and_sub_blocks" /work/kirsch/main_XRTL -design rtl 
+set_attribute -name hierarchy -value "preserve_interface_block_and_sub_blocks" /work/top_kirsch/main_XRTL -design rtl 
 
 ##################
 # Clocks
