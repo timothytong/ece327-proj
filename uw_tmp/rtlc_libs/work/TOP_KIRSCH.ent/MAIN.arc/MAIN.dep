@@ -1,0 +1,11 @@
+1458781538.783416
+*1142449606
+work	/home/jx2xu/ECE_327/ece327-proj/uw_tmp/rtlc_libs/work	TOP_KIRSCH	TOP_KIRSCH	0	192174697
+work	/home/jx2xu/ECE_327/ece327-proj/uw_tmp/rtlc_libs/work	UW_UART	UW_UART	0	1943461540
+ieee	/opt/Precision_Synthesis_2015/Mgc_home/pkgs/rtlc_psr.ixl/rtlc/IEEE_2002	STD_LOGIC_1164	STD_LOGIC_1164	2	0
+ieee	/opt/Precision_Synthesis_2015/Mgc_home/pkgs/rtlc_psr.ixl/rtlc/IEEE_2002	NUMERIC_STD	NUMERIC_STD	2	0
+work	/home/jx2xu/ECE_327/ece327-proj/uw_tmp/rtlc_libs/work	MAIN	UW_UART	1	1556464661
+work	/home/jx2xu/ECE_327/ece327-proj/uw_tmp/rtlc_libs/work	KIRSCH	KIRSCH	0	3766234925
+ieee	/opt/Precision_Synthesis_2015/Mgc_home/pkgs/rtlc_psr.ixl/rtlc/IEEE_2002	STD_LOGIC_1164	STD_LOGIC_1164	2	0
+ieee	/opt/Precision_Synthesis_2015/Mgc_home/pkgs/rtlc_psr.ixl/rtlc/IEEE_2002	NUMERIC_STD	NUMERIC_STD	2	0
+work	/home/jx2xu/ECE_327/ece327-proj/uw_tmp/rtlc_libs/work	MAIN	KIRSCH	1	3062700914

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Mar 23 21:05:52 2016
+Quartus II Version : 10.1 Build 153 11/29/2010 SJ Full Version
+Revision Name : top_kirsch
+Top-level Entity Name : top_kirsch
+Family : Cyclone II
+Total logic elements : 598
+    Total combinational functions : 442
+    Dedicated logic registers : 329
+Total registers : 329
+Total pins : 115
+Total virtual pins : 0
+Total memory bits : 4,096
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

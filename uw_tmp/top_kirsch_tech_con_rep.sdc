@@ -1,0 +1,109 @@
+###################################################################################
+# Mentor Graphics Corporation
+#
+###################################################################################
+
+#################
+# Attributes
+#################
+set_attribute -name HIERARCHY -value "preserve_interface_block" -instance u_uw_uart -design gatelevel 
+set_attribute -name HIERARCHY -value "preserve_interface_block" -instance u_kirsch -design gatelevel 
+set_attribute -name hierarchy -value "preserve_interface_block_and_sub_blocks" /work/top_kirsch/main -design gatelevel 
+set_attribute -name KEEP_HIERARCHY -value "TRUE" /work/top_kirsch/main -design gatelevel 
+set_attribute -name HIERARCHY -value "preserve_interface_block" -instance u_uw_uart/i_uarts -design gatelevel 
+set_attribute -name HIERARCHY -value "preserve_interface_block" /work/uw_uart/main -design gatelevel 
+set_attribute -name HIERARCHY -value "preserve_interface_block" /work/UARTS/RTL_unfold_1358 -design gatelevel 
+
+
+set_attribute -name HIERARCHY -value "preserve_interface_block" -instance u_kirsch/stage1 -design gatelevel 
+set_attribute -name HIERARCHY -value "preserve_interface_block" -instance u_kirsch/stage2 -design gatelevel 
+set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_kirsch/mem -design gatelevel 
+set_attribute -name ignore_ram_rw_collision -value "true" -instance -type default u_kirsch/mem_0 -design gatelevel 
+set_attribute -name HIERARCHY -value "preserve_interface_block" /work/kirsch_8_8/main_unfold_1777 -design gatelevel 
+set_attribute -name HIERARCHY -value "preserve_interface_block" -instance u_kirsch/stage1/u_max1 -design gatelevel 
+set_attribute -name HIERARCHY -value "preserve_interface_block" /work/stage1_hardware/main_unfold_1434 -design gatelevel 
+set_attribute -name HIERARCHY -value "preserve_interface_block" /work/custom_max_8/main_unfold_1856 -design gatelevel 
+
+
+set_attribute -name HIERARCHY -value "preserve_interface_block" -instance u_kirsch/stage2/u_max2 -design gatelevel 
+set_attribute -name HIERARCHY -value "preserve_interface_block" /work/stage2_hardware/main -design gatelevel 
+set_attribute -name HIERARCHY -value "preserve_interface_block" /work/custom_max_10/main -design gatelevel 
+
+
+set_attribute -name width_a -value "8" -instance -type integer u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name widthad_a -value "8" -instance -type integer u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name numwords_a -value "256" -instance -type integer u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name outdata_reg_a -value "UNREGISTERED" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name address_aclr_a -value "NONE" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name outdata_aclr_a -value "NONE" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name indata_aclr_a -value "NONE" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name wrcontrol_aclr_a -value "NONE" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name byteena_aclr_a -value "NONE" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name width_byteena_a -value "1" -instance -type integer u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name width_b -value "8" -instance -type integer u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name widthad_b -value "8" -instance -type integer u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name numwords_b -value "256" -instance -type integer u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name rdcontrol_reg_b -value "CLOCK1" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name address_reg_b -value "CLOCK1" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name outdata_reg_b -value "UNREGISTERED" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name outdata_aclr_b -value "NONE" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name rdcontrol_aclr_b -value "NONE" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name indata_reg_b -value "CLOCK1" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name wrcontrol_wraddress_reg_b -value "CLOCK1" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name byteena_reg_b -value "CLOCK1" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name indata_aclr_b -value "NONE" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name wrcontrol_aclr_b -value "NONE" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name byteena_aclr_b -value "NONE" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name width_byteena_b -value "1" -instance -type integer u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name address_aclr_b -value "NONE" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name byte_size -value "8" -instance -type integer u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name read_during_write_mode_mixed_ports -value "DONT_CARE" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name ram_block_type -value "AUTO" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name init_file -value "UNUSED" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name init_file_layout -value "UNUSED" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name maximum_depth -value "0" -instance -type integer u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name intended_device_family -value "Cyclone II" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+set_attribute -name lpm_hint -value "UNUSED" -instance -type string u_kirsch/mem/ix64056z29481 -design gatelevel 
+
+set_attribute -name width_a -value "8" -instance -type integer u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name widthad_a -value "8" -instance -type integer u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name numwords_a -value "256" -instance -type integer u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name outdata_reg_a -value "UNREGISTERED" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name address_aclr_a -value "NONE" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name outdata_aclr_a -value "NONE" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name indata_aclr_a -value "NONE" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name wrcontrol_aclr_a -value "NONE" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name byteena_aclr_a -value "NONE" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name width_byteena_a -value "1" -instance -type integer u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name width_b -value "8" -instance -type integer u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name widthad_b -value "8" -instance -type integer u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name numwords_b -value "256" -instance -type integer u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name rdcontrol_reg_b -value "CLOCK1" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name address_reg_b -value "CLOCK1" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name outdata_reg_b -value "UNREGISTERED" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name outdata_aclr_b -value "NONE" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name rdcontrol_aclr_b -value "NONE" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name indata_reg_b -value "CLOCK1" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name wrcontrol_wraddress_reg_b -value "CLOCK1" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name byteena_reg_b -value "CLOCK1" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name indata_aclr_b -value "NONE" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name wrcontrol_aclr_b -value "NONE" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name byteena_aclr_b -value "NONE" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name width_byteena_b -value "1" -instance -type integer u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name address_aclr_b -value "NONE" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name byte_size -value "8" -instance -type integer u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name read_during_write_mode_mixed_ports -value "DONT_CARE" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name ram_block_type -value "AUTO" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name init_file -value "UNUSED" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name init_file_layout -value "UNUSED" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name maximum_depth -value "0" -instance -type integer u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name intended_device_family -value "Cyclone II" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+set_attribute -name lpm_hint -value "UNUSED" -instance -type string u_kirsch/mem_0/ix64056z29482 -design gatelevel 
+
+
+
+
+##################
+# Clocks
+##################
+create_clock { clk } -domain ClockDomain0 -name clk -period 20.000000 -waveform { 0.000000 10.000000 } -design gatelevel 

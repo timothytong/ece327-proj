@@ -1,0 +1,7 @@
+1458794051.454007
+*3552826672
+work	/home/jx2xu/ECE_327/ece327-proj/uw_tmp/rtlc_libs/work	STAGE2_HARDWARE	STAGE2_HARDWARE	0	2816529474
+work	/home/jx2xu/ECE_327/ece327-proj/uw_tmp/rtlc_libs/work	CUSTOM_MAX	CUSTOM_MAX	0	769570954
+ieee	/opt/Precision_Synthesis_2015/Mgc_home/pkgs/rtlc_psr.ixl/rtlc/IEEE_2002	STD_LOGIC_1164	STD_LOGIC_1164	2	0
+ieee	/opt/Precision_Synthesis_2015/Mgc_home/pkgs/rtlc_psr.ixl/rtlc/IEEE_2002	NUMERIC_STD	NUMERIC_STD	2	0
+work	/home/jx2xu/ECE_327/ece327-proj/uw_tmp/rtlc_libs/work	MAIN	CUSTOM_MAX	1	3664835111
