@@ -30,19 +30,19 @@ begin
     -- o_max_val takes max(i_dir1, i_dir2) just like all other maxes
     -- o_max_dir takes the direction of max(i_dir1, i_dir2)
     -- if i_pix1 == i_pix2, take i_pix1 and i_dir1 due to priority stated in lab manual
-    o_max_pix <= max(i_pix1, i_pix2);
-    o_max_dir <= i_dir1 when i_pix1 >= i_pix2 else
-                 i_dir2;
---     process(i_pix1, i_pix2, i_dir1, i_dir2)
---     begin
---         if (i_pix1 >= i_pix2) then
---             o_max_pix <= i_pix1; --when ( i_pix1 >= i_pix2 ) else i_pix2;
--- --            o_max_dir <= i_dir1; --when ( i_pix1 >= i_pix2 ) else i_dir2;
---         else
---             o_max_pix <= i_pix2;
--- --            o_max_dir <= i_dir2;
---         end if;
---     end process;
+    --o_max_pix <= max(i_pix1, i_pix2);
+    --o_max_dir <= i_dir1 when i_pix1 >= i_pix2 else
+                 --i_dir2;
+     process(i_pix1, i_pix2, i_dir1, i_dir2)
+     begin
+         if (i_pix1 >= i_pix2) then
+             o_max_pix <= i_pix1; --when ( i_pix1 >= i_pix2 ) else i_pix2;
+             o_max_dir <= i_dir1; --when ( i_pix1 >= i_pix2 ) else i_dir2;
+         else
+             o_max_pix <= i_pix2;
+             o_max_dir <= i_dir2;
+         end if;
+     end process;
 
 end architecture main;
 
@@ -68,18 +68,29 @@ architecture main of stage1_hardware is
 
 begin
     -- instantiate custom max module
-    u_max1 : entity work.custom_max(main)
-        generic map (
-            width => 8
-        )
-        port map (
-            i_dir1 => i_dir1_stage1,
-            i_dir2 => i_dir2_stage1,
-            i_pix1 => i_pix1_stage1,
-            i_pix2 => i_pix2_stage1,
-            o_max_dir => o_max_dir_stage1,
-            o_max_pix => custom_max_pix_output
-        );
+   -- u_max1 : entity work.custom_max(main)
+   --     generic map (
+   --         width => 8
+   --     )
+   --     port map (
+   --         i_dir1 => i_dir1_stage1,
+   --         i_dir2 => i_dir2_stage1,
+   --         i_pix1 => i_pix1_stage1,
+   --         i_pix2 => i_pix2_stage1,
+   --         o_max_dir => o_max_dir_stage1,
+   --         o_max_pix => custom_max_pix_output
+   --     );
+    process(i_pix1_stage1, i_pix2_stage1, i_dir1_stage1, i_dir2_stage1)
+    begin
+        if (i_pix1_stage1 >= i_pix2_stage1) then
+            custom_max_pix_output <= i_pix1_stage1; --when ( i_pix1 >= i_pix2 ) else i_pix2;
+            o_max_dir_stage1 <= i_dir1_stage1; --when ( i_pix1 >= i_pix2 ) else i_dir2;
+        else
+            custom_max_pix_output <= i_pix2_stage1;
+            o_max_dir_stage1 <= i_dir2_stage1;
+        end if;
+    end process;
+
 
     sum_a1_a2 <= resize(i_add_op1_stage1, 9) + resize(i_add_op2_stage1, 9);
     o_add_op12_stage1 <= sum_a1_a2;
@@ -294,21 +305,21 @@ begin
     buffers : process (i_clock)
     begin
         if rising_edge(i_clock) then
-            if i_reset = '1' then
-                a <= (others => '0');
-                b <= (others => '0');
-                c <= (others => '0');
-
-                h <= (others => '0');
-                i <= (others => '0');
-                d <= (others => '0');
-
-                g <= (others => '0');
-                f <= (others => '0');
-                e <= (others => '0');
-
-
-            else
+--            if i_reset = '1' then
+--                a <= (others => '0');
+--                b <= (others => '0');
+--                c <= (others => '0');
+--
+--                h <= (others => '0');
+--                i <= (others => '0');
+--                d <= (others => '0');
+--
+--                g <= (others => '0');
+--                f <= (others => '0');
+--                e <= (others => '0');
+--
+--
+--            else
                 if i_valid  = '1' then
                     if row_virtual(0) = '0' then
                         c <= unsigned(mem_out(0));
@@ -328,7 +339,7 @@ begin
                     f <= e;
                     g <= f;
                 end if;
-            end if;
+--            end if;
         end if;
     end process;
 
@@ -374,12 +385,12 @@ begin
     valid_bit : process(i_clock)
     begin
         if rising_edge(i_clock) then
-            if i_reset = '1' then
-                valid <= (others => '0');
-            else
+--            if i_reset = '1' then
+--                valid <= (others => '0');
+--            else
                 -- logical shift right, bring new i_valid to beginning of valid bit chain
                 valid <= valid(5 downto 0) & i_valid;
-            end if;
+--            end if;
         end if;
     end process;
 
