@@ -206,6 +206,15 @@ signal column_valid1 : unsigned(addr_width - 1 downto 0);
 signal column_valid2 : unsigned(addr_width - 1 downto 0);
 signal row_valid1 : unsigned(addr_width - 1 downto 0);
 signal row_valid2 : unsigned(addr_width - 1 downto 0);
+signal column_is_2_first : std_logic;
+signal column_is_2_second : std_logic;
+signal row_is_2_first : std_logic;
+signal row_is_2_second : std_logic;
+signal column_is_end_first : std_logic;
+signal column_is_end_second : std_logic;
+signal row_is_end_first : std_logic;
+signal row_is_end_second : std_logic;
+
 
 --Memory outputs (registered)
 signal mem_out: vec_vec;
@@ -267,7 +276,8 @@ begin
                 end if;
                 if i_valid = '1' then
                     mode <= busy;
-                elsif ((row_valid2 = image_height - 1) and (column_valid2 = image_width - 1) and output_valid_reg = '1') then
+                --elsif ((row_valid2 = image_height - 1) and (column_valid2 = image_width - 1) and output_valid_reg = '1') then
+                elsif ((row_is_end_second = '1') and (column_is_end_second = '1') and output_valid_reg = '1') then
                     mode <= idle;
                 end if;
             end if;
@@ -371,12 +381,38 @@ begin
     begin
         if rising_edge(i_clock) then
             if valid(0) = '1' then
-                column_valid1 <= column;
-                row_valid1 <= row_virtual;
+                --column_valid1 <= column;
+                --row_valid1 <= row_virtual;
+                if (column >= 2) then
+                    column_is_2_first <= '1';
+                else
+                    column_is_2_first <= '0';
+                end if;
+                if (row_virtual >= 2) then
+                    row_is_2_first <= '1';
+                else
+                    row_is_2_first <= '0';
+                end if;    
+
+                if (column = image_width - 1) then
+                    column_is_end_first <= '1';
+                else
+                    column_is_end_first <= '0';
+                end if;
+                if (row_virtual = image_height -1) then
+                    row_is_end_first <= '1';
+                else
+                    row_is_end_first <= '0';
+                end if;
+
             end if;
             if valid(4) = '1' then
-                column_valid2 <= column_valid1;
-                row_valid2 <= row_valid1;
+                --column_valid2 <= column_valid1;
+                --row_valid2 <= row_valid1;
+                column_is_2_second <= column_is_2_first;
+                row_is_2_second <= row_is_2_first;
+                column_is_end_second <= column_is_end_first;
+                row_is_end_second <= row_is_end_first;
             end if;
         end if;
     end process;
@@ -543,7 +579,8 @@ begin
     output_valid : process(i_clock)
     begin
         if rising_edge(i_clock) then
-            if (valid(6) = '1' and row_valid2 >= 2 and column_valid2 >= 2) then
+            --if (valid(6) = '1' and row_valid2 >= 2 and column_valid2 >= 2) then
+            if (valid(6) = '1' and row_is_2_second = '1' and column_is_2_second = '1') then
                 output_valid_reg <= '1';
             else
                 output_valid_reg <= '0';
