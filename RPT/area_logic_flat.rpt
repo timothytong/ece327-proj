@@ -22,46 +22,6 @@ Memory Bits                       4096    483840    0.85%
 DSP block 9-bit elems             0       70        0.00%
 ---------------------------------------------------------------
 
-**************************************************************
-
-Library: OPERATORS    Cell: ram_dq_8_1    View: IMPLEMENTATION
-
-**************************************************************
-
-  Cell                     Library  References     Total Area
-
- VCC                       cycloneii     1 x
- altsyncram_8_8_256_2_1    OPERATORS     1 x
-
- Number of ports :                      32
- Number of nets :                       27
- Number of instances :                   2
- Number of references to this view :     1
-
-Total accumulated area : 
- Number of Memory Bits :              2048
- Number of accumulated instances :       2
-
-**************************************************************
-
-Library: OPERATORS    Cell: ram_dq_8_0    View: IMPLEMENTATION
-
-**************************************************************
-
-  Cell                     Library  References     Total Area
-
- VCC                       cycloneii     1 x
- altsyncram_8_8_256_2_0    OPERATORS     1 x
-
- Number of ports :                      32
- Number of nets :                       27
- Number of instances :                   2
- Number of references to this view :     1
-
-Total accumulated area : 
- Number of Memory Bits :              2048
- Number of accumulated instances :       2
-
 **************************************************
 
 Library: work    Cell: custom_max_10    View: main
@@ -130,21 +90,21 @@ Library: work    Cell: kirsch    View: main
 
 *******************************************
 
-  Cell                   Library  References     Total Area
+  Cell                     Library  References     Total Area
 
- GND                     cycloneii     1 x
- NOT                     cycloneii     1 x
- VCC                     cycloneii     1 x
- cycloneii_lcell_comb    cycloneii   204 x      1    204 LUTs
- cycloneii_lcell_ff      cycloneii   204 x      1    204 Registers
- ram_dq_8_0              OPERATORS     1 x   2048   2048 Memory Bits
- ram_dq_8_1              OPERATORS     1 x   2048   2048 Memory Bits
- stage1_hardware         work          1 x     37     37 LUTs
- stage2_hardware         work          1 x     36     36 LUTs
+ GND                       cycloneii     1 x
+ NOT                       cycloneii     1 x
+ VCC                       cycloneii     3 x
+ altsyncram_8_8_256_2_0    OPERATORS     1 x
+ altsyncram_8_8_256_2_1    OPERATORS     1 x
+ cycloneii_lcell_comb      cycloneii   204 x      1    204 LUTs
+ cycloneii_lcell_ff        cycloneii   204 x      1    204 Registers
+ stage1_hardware           work          1 x     37     37 LUTs
+ stage2_hardware           work          1 x     36     36 LUTs
 
  Number of ports :                      95
- Number of nets :                      503
- Number of instances :                 415
+ Number of nets :                      505
+ Number of instances :                 417
  Number of references to this view :     0
 
 Total accumulated area : 
